@@ -16,6 +16,6 @@ func _physics_process(delta):
 			picked = true
 	
 	if(picked):
-		print("picked")
+		print("picked " + self.name)
 		picked = false
 #	self.position = player_node.global_position
