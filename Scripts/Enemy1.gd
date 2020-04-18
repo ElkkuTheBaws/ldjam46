@@ -26,3 +26,5 @@ func _on_PlayerDetector_body_entered(body: Node) -> void:
 	tplayer = body
 	set_physics_process(true)
 	return
+
+

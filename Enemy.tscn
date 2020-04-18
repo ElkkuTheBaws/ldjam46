@@ -26,4 +26,9 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource( 2 )
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_HitTimer_timeout"]
