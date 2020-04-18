@@ -14,10 +14,10 @@ func _physics_process(delta):
 	else:
 		apply_movement(axis * delta * ACCELERATION)
 	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("bodies"):
-			collision.collider.apply_central_impulse(-collision.normal * inertia)		
+#	for index in get_slide_count():
+#		var collision = get_slide_collision(index)r
+#		if collision.collider.is_in_group("pickable"):
+#			collision.collider.apply_central_impulse(-collision.normal * inertia)
 	
 func get_input_axis():
 	var axis = Vector2.ZERO
