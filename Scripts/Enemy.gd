@@ -2,7 +2,6 @@ extends KinematicBody2D
 class_name Enemy
 
 onready var timer = $HitTimer
-
 var MAX_SPEED = 200
 var collision
 var HP = 2
