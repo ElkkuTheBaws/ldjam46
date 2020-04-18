@@ -6,9 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.6001, 33.1304 )
 
-[node name="Barrel" type="RigidBody2D"]
-gravity_scale = 0.0
-linear_damp = 1.0
+[node name="Barrel" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
