@@ -33,11 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="ldjam"
-<<<<<<< HEAD
-=======
-run/main_scene="res://Levels/TestMap.tscn"
->>>>>>> a6425a27cb8db35d1edf9da871e3f7ae56279e60
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -77,4 +78,5 @@ ui_pick={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
