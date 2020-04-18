@@ -1,45 +1,45 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Textures/16x16_tiles (1).png" type="Texture" id=4]
+[ext_resource path="res://Textures/16x16 tiles for autotiling.png" type="Texture" id=4]
 [ext_resource path="res://Jitter_FREE.tres" type="Material" id=5]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 8.28188, 13.015, 5.37477, 10.3017, 8.28188, 8.55741, 11.5766, 10.4955 )
-
-[sub_resource type="TileSet" id=2]
-0/name = "16x16_tiles (1).png 0"
+[sub_resource type="TileSet" id=1]
+0/name = "16x16 tiles for autotiling.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 48, 80, 16, 16 )
-0/tile_mode = 0
+0/region = Rect2( 0, 0, 80, 48 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1, Vector2( 3, 0 ), 69, Vector2( 3, 2 ), 321, Vector2( 4, 0 ), 261, Vector2( 4, 2 ), 324 ]
+0/autotile/icon_coordinate = Vector2( 1, 1 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
 0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
 0/z_index = 0
 
 [node name="TestMap" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 material = ExtResource( 5 )
-tile_set = SubResource( 2 )
-cell_size = Vector2( 8, 8 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 4
 format = 1
+tile_data = PoolIntArray( 1572878, 0, 0, 1572879, 0, 1, 1572880, 0, 1, 1572881, 0, 1, 1572882, 0, 2, 1638414, 0, 65536, 1638415, 0, 65537, 1638416, 0, 65537, 1638417, 0, 65537, 1638418, 0, 65538, 1703950, 0, 65536, 1703951, 0, 65537, 1703952, 0, 65537, 1703953, 0, 65537, 1703954, 0, 65538, 1769479, 0, 0, 1769480, 0, 1, 1769481, 0, 1, 1769482, 0, 2, 1769484, 0, 0, 1769485, 0, 1, 1769486, 0, 131076, 1769487, 0, 65537, 1769488, 0, 65537, 1769489, 0, 65537, 1769490, 0, 65538, 1835015, 0, 65536, 1835016, 0, 65537, 1835017, 0, 65537, 1835018, 0, 65538, 1835020, 0, 65536, 1835021, 0, 65537, 1835022, 0, 65537, 1835023, 0, 65537, 1835024, 0, 3, 1835025, 0, 131073, 1835026, 0, 131074, 1900551, 0, 65536, 1900552, 0, 65537, 1900553, 0, 65537, 1900554, 0, 65538, 1900556, 0, 131072, 1900557, 0, 4, 1900558, 0, 65537, 1900559, 0, 65537, 1900560, 0, 65538, 1966087, 0, 65536, 1966088, 0, 65537, 1966089, 0, 65537, 1966090, 0, 65538, 1966093, 0, 65536, 1966094, 0, 65537, 1966095, 0, 65537, 1966096, 0, 131075, 1966097, 0, 1, 1966098, 0, 2, 2031623, 0, 65536, 2031624, 0, 65537, 2031625, 0, 65537, 2031626, 0, 131075, 2031627, 0, 1, 2031628, 0, 1, 2031629, 0, 131076, 2031630, 0, 65537, 2031631, 0, 65537, 2031632, 0, 65537, 2031633, 0, 65537, 2031634, 0, 65538, 2097159, 0, 65536, 2097160, 0, 65537, 2097161, 0, 65537, 2097162, 0, 65537, 2097163, 0, 65537, 2097164, 0, 65537, 2097165, 0, 65537, 2097166, 0, 65537, 2097167, 0, 65537, 2097168, 0, 65537, 2097169, 0, 65537, 2097170, 0, 65538, 2162695, 0, 131072, 2162696, 0, 131073, 2162697, 0, 131073, 2162698, 0, 131073, 2162699, 0, 131073, 2162700, 0, 131073, 2162701, 0, 131073, 2162702, 0, 131073, 2162703, 0, 131073, 2162704, 0, 131073, 2162705, 0, 131073, 2162706, 0, 131074 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 516.942, 254.594 )
