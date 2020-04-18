@@ -3,6 +3,7 @@ class_name pickable
 
 onready var player_node = get_node("../Player/Position2D")
 onready var player: = get_node("../Player")
+onready var raycast: = get_node("../Player/RayCast2D")
 
 var MASS = 500
 var speed = 200
@@ -11,7 +12,6 @@ var can_pick = false
 var picked = false
 var inAir = false
 var throwtime
-var throw_direction = Vector2.RIGHT
 var collision
 var tween : Tween
 
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		self.position = player_node.global_position + Vector2(0,-5)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			throw_object_still(player.current_direction)
+			throw_object_still()
 
 	#if inAir:
 		#collision = move_and_collide(throw_direction * speed * delta)
@@ -40,15 +40,17 @@ func _physics_process(delta):
 		
 #	self.position = player_node.global_position
 
-func throw_object_still(var direction):
+func throw_object_still():
 	inAir = true
-	throw_direction = direction
 	picked = false
 	
 	tween = Tween.new()
 	add_child(tween)
-	tween.interpolate_property(self, "position", global_position, player.throw_destination, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
-	tween.start()	
+	if raycast.is_colliding():
+		tween.interpolate_property(self, "position", global_position, player.throw_destination+player.current_direction.normalized()*-3, 0.25,Tween.TRANS_BACK,Tween.EASE_OUT)
+	else:
+		tween.interpolate_property(self, "position", global_position, player.throw_destination, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
+	tween.start()
 	#Creating a timer for the throw distance
 	throwtime = Timer.new()
 	throwtime.one_shot = true

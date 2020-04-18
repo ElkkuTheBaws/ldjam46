@@ -10,7 +10,7 @@ const left = Vector2.LEFT
 
 var current_direction = right
 var throw_destination = current_direction
-export (int, 0 , 1000) var	 MAX_SPEED = 500
+export (int, 0 , 1000) var MAX_SPEED = 500
 export (int, 0 , 5000) var ACCELERATION = 2000
 export (int, 0 , 200) var inertia = 50;
 var motion = Vector2.ZERO
