@@ -1,18 +1,28 @@
 extends Enemy
 
+var speed = 200.0
+var min_distance = 100.0
 
 
+var tplayer : player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_physics_process(false)
+	return
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _physics_process(delta: float) -> void:
+	var direction: = (tplayer.global_position - global_position).normalized()
+	var distance_to_player: = global_position.distance_to(tplayer.global_position)
+	if distance_to_player <= min_distance:
+		move_and_slide(speed * direction * delta)
+	
+	return
 
 
 func _on_PlayerDetector_body_entered(body: Node) -> void:
-	#if not body is Player:
-	#//	return
+	if not body is player:
+		return
+	tplayer = body
+	set_physics_process(true)
 	return
