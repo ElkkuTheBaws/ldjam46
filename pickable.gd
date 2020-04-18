@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 class_name pickable
 
 var MASS = 500

@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemy.gd"
 }, {
-"base": "RigidBody2D",
+"base": "KinematicBody2D",
 "class": "pickable",
 "language": "GDScript",
 "path": "res://pickable.gd"
