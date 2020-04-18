@@ -1,7 +1,7 @@
 extends Enemy
 
-var speed = 200.0
-var min_distance = 100.0
+var speed = 2000.0
+var min_distance = 300.0
 
 
 var tplayer : player
