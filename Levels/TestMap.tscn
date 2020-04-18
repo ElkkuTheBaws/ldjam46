@@ -235,9 +235,9 @@ ACCELERATION = 1400
 position = Vector2( 213.592, 248.735 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 345.437, 161.091 )
+position = Vector2( 402.715, 129.75 )
 speed = 100.0
-min_distance = 200.0
+min_distance = 500.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 257.041, 149.147 )

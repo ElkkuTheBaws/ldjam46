@@ -4,11 +4,11 @@
 [ext_resource path="res://Scripts/Enemy1.gd" type="Script" id=2]
 [ext_resource path="res://Jitter_FREE.tres" type="Material" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.54731, 1.56581 )
+[sub_resource type="CircleShape2D" id=3]
+radius = 2.38441
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 46.8238
+radius = 164.996
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_mask = 7
@@ -21,7 +21,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0598963, 0.756856 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 
