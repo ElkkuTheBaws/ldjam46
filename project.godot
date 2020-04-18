@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemy.gd"
+"path": "res://Scripts/Enemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "pickable",
 "language": "GDScript",
-"path": "res://pickable.gd"
+"path": "res://Scripts/pickable.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://Scripts/Player.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
@@ -34,6 +34,11 @@ _global_script_class_icons={
 
 config/name="ldjam"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -73,4 +78,5 @@ ui_pick={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

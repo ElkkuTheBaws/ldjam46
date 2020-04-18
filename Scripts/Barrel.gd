@@ -1,4 +1,4 @@
-extends "res://pickable.gd"
+extends pickable
 
 
 # Declare member variables here. Examples:
