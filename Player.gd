@@ -1,7 +1,9 @@
 extends KinematicBody2D
+class_name player
 
-var MAX_SPEED = 500
-var ACCELERATION = 2000
+export (int, 0 , 1000) var	 MAX_SPEED = 500
+export (int, 0 , 5000) var ACCELERATION = 2000
+export (int, 0 , 200) var inertia = 50;
 var motion = Vector2.ZERO
 
 func _physics_process(delta):
@@ -11,7 +13,11 @@ func _physics_process(delta):
 		apply_friction(ACCELERATION * delta)
 	else:
 		apply_movement(axis * delta * ACCELERATION)
-	motion = move_and_slide(motion)
+	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal * inertia)		
 	
 func get_input_axis():
 	var axis = Vector2.ZERO
