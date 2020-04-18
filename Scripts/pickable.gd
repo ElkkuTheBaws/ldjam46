@@ -5,7 +5,7 @@ onready var player_node = get_node("../Player/Position2D")
 onready var player: = get_node("../Player")
 
 var MASS = 500
-var speed = 300
+var speed = 200
 var can_pick = false
 var picked = false
 var inAir = false
@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if(picked):
 		self.collision_layer = 2
 		self.collision_mask = 2
-		self.position = player_node.global_position + Vector2(0,-20)
+		self.position = player_node.global_position + Vector2(0,-5)
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			if player.motion == Vector2.ZERO:
