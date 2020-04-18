@@ -6,10 +6,10 @@
 [ext_resource path="res://Textures/16x16_tiles (1).png" type="Texture" id=4]
 [ext_resource path="res://Jitter_FREE.tres" type="Material" id=5]
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 8.28188, 13.015, 5.37477, 10.3017, 8.28188, 8.55741, 11.5766, 10.4955 )
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=2]
 0/name = "16x16_tiles (1).png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -20,14 +20,14 @@ points = PoolVector2Array( 8.28188, 13.015, 5.37477, 10.3017, 8.28188, 8.55741, 
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 2 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -36,19 +36,21 @@ points = PoolVector2Array( 8.28188, 13.015, 5.37477, 10.3017, 8.28188, 8.55741, 
 
 [node name="TileMap" type="TileMap" parent="."]
 material = ExtResource( 5 )
-tile_set = SubResource( 1 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 4
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 516.942, 254.594 )
-MAX_SPEED = null
-ACCELERATION = null
-inertia = null
+position = Vector2( 27.4231, 16.7579 )
 
 [node name="Barrel" parent="." instance=ExtResource( 3 )]
-position = Vector2( 261.192, 297.922 )
+position = Vector2( 213.592, 248.735 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 694.506, 359.425 )
+position = Vector2( 345.437, 161.091 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 257.041, 149.147 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
