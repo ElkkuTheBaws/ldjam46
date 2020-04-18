@@ -38,4 +38,6 @@ func apply_friction(amount):
 func _on_PickArea_body_entered(body):
 	if not body is pickable:
 		return
-	
+	body.set_physics_process(true)
+	if Input.is_action_pressed("ui_pick"):
+		print("ok")
