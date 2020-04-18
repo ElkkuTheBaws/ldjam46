@@ -12,10 +12,10 @@ var canTakeDamage = true
 func _physics_process(delta: float) -> void:
 	if collision:
 		if collision.collider is pickable:
-			if(canTakeDamage):
+			if(collision.collider.inAir and canTakeDamage):
 				lose_hp()
-				print(self.get_class(), " collided with ", collision.collider.get_class())
 				canTakeDamage = false
+				print(self.get_class(), " collided with ", collision.collider.get_class())
 				timer.start()
 	return
 
