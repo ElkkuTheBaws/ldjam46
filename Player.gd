@@ -33,3 +33,9 @@ func apply_friction(amount):
 		motion -= motion.normalized() * amount
 	else:
 		motion = Vector2.ZERO
+
+
+func _on_PickArea_body_entered(body):
+	if not body is pickable:
+		return
+	
