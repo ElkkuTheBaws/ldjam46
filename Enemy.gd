@@ -2,7 +2,6 @@ extends KinematicBody2D
 class_name Enemy
 
 var MAX_SPEED = 200
-var ACCELERATION = 2000
 var motion = Vector2.ZERO
 var HP = 2
 
