@@ -1,6 +1,14 @@
 extends KinematicBody2D
 class_name player
 
+
+const up = Vector2.UP
+const right = Vector2.RIGHT
+const down = Vector2.DOWN
+const left = Vector2.LEFT
+
+
+var current_direction = right
 export (int, 0 , 1000) var	 MAX_SPEED = 500
 export (int, 0 , 5000) var ACCELERATION = 2000
 export (int, 0 , 200) var inertia = 50;
@@ -14,6 +22,9 @@ func _physics_process(delta):
 	else:
 		apply_movement(axis * delta * ACCELERATION)
 	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
+	
+	set_current_direction()
+	
 #	for index in get_slide_count():
 #		var collision = get_slide_collision(index)r
 #		if collision.collider.is_in_group("pickable"):
@@ -34,8 +45,24 @@ func apply_friction(amount):
 	else:
 		motion = Vector2.ZERO
 
+func set_current_direction():
+	if Input.is_action_pressed("ui_right"):
+		 current_direction = right
+	if Input.is_action_pressed("ui_left"):
+		current_direction = left
+	if Input.is_action_pressed("ui_down"):
+		current_direction = down
+	if Input.is_action_pressed("ui_up"):
+		current_direction = up
+
 
 func _on_PickArea_body_entered(body):
 	if not body is pickable:
 		return
 	body.can_pick = true
+
+
+func _on_PickArea_body_exited(body: Node) -> void:
+	if not body is pickable:
+		return
+	body.can_pick = false
