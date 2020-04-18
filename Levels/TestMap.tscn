@@ -1,18 +1,51 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/16x16_tiles (1).png" type="Texture" id=4]
+[ext_resource path="res://Jitter_FREE.tres" type="Material" id=5]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 8.28188, 13.015, 5.37477, 10.3017, 8.28188, 8.55741, 11.5766, 10.4955 )
+
+[sub_resource type="TileSet" id=1]
+0/name = "16x16_tiles (1).png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 48, 80, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="TestMap" type="Node2D"]
 
+[node name="TileMap" type="TileMap" parent="."]
+material = ExtResource( 5 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 4
+format = 1
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 516.942, 254.594 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -1.95566, -0.764542, 163.141, 29.1524, 539.873, 8.09973, 711.618, 61.2853, 918.82, 18.072, 1008.57, 1.45152, 1024.08, 220.842, 1015.22, 395.911, 963.694, 560.676, 939.14, 594.277, 857.721, 603.323, 772.426, 462.457, 670.33, 511.566, 623.805, 586.523, 521.709, 585.23, 445.46, 466.334, 360.164, 493.473, 292.962, 556.799, 198.62, 604.616, 122.371, 609.785, 24.1519, 539.998, 17.6902, 403.008, 43.5373, 232.417, 12.5207, 153.584, -62.4359, 24.3481, 0.889526, 33.3946, -103.791, -10.5455, -6.86459, 621.416, 1109.73, 621.416, 1069.67, -53.1932, -36.5888, -58.3627 )
+MAX_SPEED = null
+ACCELERATION = null
+inertia = null
 
 [node name="Barrel" parent="." instance=ExtResource( 3 )]
 position = Vector2( 261.192, 297.922 )
