@@ -1,6 +1,6 @@
 extends Enemy
 
-var speed = 2000.0
+var speed = 200.0
 var min_distance = 300.0
 
 
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	var direction: = (tplayer.global_position - global_position).normalized()
 	var distance_to_player: = global_position.distance_to(tplayer.global_position)
 	if distance_to_player <= min_distance:
-		move_and_slide(speed * direction * delta)
+		collision = move_and_collide(speed * direction * delta)
 	
 	return
 

@@ -2,10 +2,15 @@ extends KinematicBody2D
 class_name Enemy
 
 var MAX_SPEED = 200
-var motion = Vector2.ZERO
+var collision
 var HP = 2
 
+
+
 func _physics_process(delta: float) -> void:
+	if collision:
+		if(collision.collider is pickable):
+			print(self.get_class(), " collided with ", collision.collider)
 	return
 
 func lose_hp() -> void:
