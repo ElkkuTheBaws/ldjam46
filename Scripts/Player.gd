@@ -8,7 +8,8 @@ const down = Vector2.DOWN
 const left = Vector2.LEFT
 
 var picked : pickable
-var charged = 0
+export(int,100) var min_throw_distance
+var charged = min_throw_distance
 var hasObject = false
 
 signal throw_length_changed(length)
@@ -35,7 +36,7 @@ func _physics_process(delta):
 		animationTree.set("parameters/Idle/blend_position", axis)
 		animationTree.set("parameters/Run/blend_position", axis)
 		animationState.travel("Run")
-	if not charged > 0:
+	if not charged > min_throw_distance:
 		motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
 	
 	if not picked == null and picked.can_pick:
@@ -49,7 +50,7 @@ func _physics_process(delta):
 				charge_throw()
 		if Input.is_action_just_released("ui_accept"):
 			picked.throw_object()
-			charged = 0
+			charged = min_throw_distance
 			hasObject = false
 	
 	set_current_direction()

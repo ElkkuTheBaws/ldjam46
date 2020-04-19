@@ -249,7 +249,9 @@ margin_right = 10.7434
 margin_bottom = -6.0
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
+min_value = 10.0
 max_value = 75.0
+value = 10.0
 percent_visible = false
 script = ExtResource( 3 )
 __meta__ = {
@@ -276,8 +278,8 @@ active = true
 parameters/playback = SubResource( 26 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
-[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
 [connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
