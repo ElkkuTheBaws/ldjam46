@@ -216,6 +216,7 @@ graph_offset = Vector2( -279.746, 8.16189 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 5
 script = ExtResource( 2 )
+MAX_SPEED = 120
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false
@@ -226,7 +227,7 @@ script = ExtResource( 19 )
 texture = ExtResource( 1 )
 vframes = 8
 hframes = 4
-frame = 28
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
