@@ -4,6 +4,10 @@ export var speed = 200.0
 export var min_distance = 300.0
 onready var nav_2d : Navigation2D = get_node("../Navigation2D")	
 onready var pleijeri = get_node("../Player")	
+
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
 var path : = PoolVector2Array()
 var tplayer : player
 var chase = false
@@ -43,9 +47,13 @@ func move_along_path(distance : float, delta) -> void:
 		var distance_to_next : = start_point.distance_to(path[0])
 		if distance <= distance_to_next and distance >= 0.0:
 			move_and_slide(((path[0] - global_position)*delta).normalized() * speed)
+			animationTree.set("parameters/Idle/blend_position", (path[0] - global_position).normalized())
+			animationTree.set("parameters/Run/blend_position", (path[0] - global_position).normalized())
+			animationState.travel("Run")
 			break
 		elif distance < 0.0:
 			position = path[0]
+			animationState.travel("Idle")
 			set_physics_process(false)
 			break
 		distance -= distance_to_next

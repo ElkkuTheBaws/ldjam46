@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player_run up_2.png-1ab90b9823c1838abfdcdbc2c4a817c9.stex"
+path="res://.import/alien_animation_spritesheet.png-b6ca139c28ee8acff0416424bc3bf8b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/sprites #1/player animations/run up/player_run up_2.png"
-dest_files=[ "res://.import/player_run up_2.png-1ab90b9823c1838abfdcdbc2c4a817c9.stex" ]
+source_file="res://Textures/alien_animation_spritesheet.png"
+dest_files=[ "res://.import/alien_animation_spritesheet.png-b6ca139c28ee8acff0416424bc3bf8b0.stex" ]
 
 [params]
 

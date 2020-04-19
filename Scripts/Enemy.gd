@@ -7,7 +7,6 @@ var collision
 var HP = 2
 var canTakeDamage = true
 
-
 func _physics_process(_delta: float) -> void:
 	if collision:
 		if collision.collider is pickable:
