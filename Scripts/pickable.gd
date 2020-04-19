@@ -20,7 +20,7 @@ func _ready():
 	add_to_group("pickable")
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if can_pick == true:
 		if Input.is_action_just_pressed("ui_pick"):
 			picked = true
