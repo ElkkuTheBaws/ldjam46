@@ -7,6 +7,10 @@ const right = Vector2.RIGHT
 const down = Vector2.DOWN
 const left = Vector2.LEFT
 
+var picked : pickable
+var charged = 0
+
+signal throw_length_changed(length)
 
 var current_direction = right
 var throw_destination = current_direction
@@ -23,6 +27,18 @@ func _physics_process(delta):
 	else:
 		apply_movement(axis * delta * ACCELERATION)
 	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
+	
+	if not picked == null and picked.can_pick:
+		
+		if Input.is_action_just_pressed("ui_pick"):
+			picked.picked = true
+
+	if not picked == null and picked.picked:
+		if Input.is_action_pressed("ui_accept"):
+				charge_throw()
+		if Input.is_action_just_released("ui_accept"):
+			picked.throw_object()
+			charged = 0
 	
 	set_current_direction()
 	
@@ -56,11 +72,18 @@ func set_current_direction():
 	if Input.is_action_pressed("ui_up"):
 		current_direction = up
 
+func charge_throw():
+	if Input.is_action_pressed("ui_accept"):
+		charged += 1
+		emit_signal("throw_length_changed", charged)
+
 
 func _on_PickArea_body_entered(body):
 	if not body is pickable:
 		return
 	body.can_pick = true
+	picked = body
+	
 
 
 func _on_PickArea_body_exited(body: Node) -> void:

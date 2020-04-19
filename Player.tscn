@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Textures/sprites #1/player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/ProgressBar.gd" type="Script" id=3]
 [ext_resource path="res://Textures/player animations/run down/player_run_down_3.png" type="Texture" id=4]
 [ext_resource path="res://Textures/player animations/run up/player_run up_0.png" type="Texture" id=5]
 [ext_resource path="res://Textures/player animations/run right/player_run_right_2.png" type="Texture" id=6]
@@ -32,11 +33,6 @@ animations = [ {
 "name": "idle up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "idle down",
@@ -47,16 +43,27 @@ animations = [ {
 "name": "run up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "run right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "idle right",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "run right",
+"speed": 5.0
 } ]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.988235, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.364706, 0.364706, 0.364706, 1 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 5
@@ -85,5 +92,25 @@ shape = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "run up"
 frame = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = -10.2566
+margin_top = -9.0
+margin_right = 10.7434
+margin_bottom = -6.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+max_value = 75.0
+percent_visible = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ProgressBar"]
+one_shot = true
+[connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
+[connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]

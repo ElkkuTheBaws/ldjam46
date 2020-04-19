@@ -21,16 +21,16 @@ func _ready():
 	
 	
 func _physics_process(_delta):
-	if can_pick == true:
-		if Input.is_action_just_pressed("ui_pick"):
-			picked = true
+#	if can_pick == true:
+#		if Input.is_action_just_pressed("ui_pick"):
+#			picked = true
 	if(picked):
 		self.collision_layer = 2
 		self.collision_mask = 2
 		self.position = player_node.global_position + Vector2(0,-5)
 		
-		if Input.is_action_just_pressed("ui_accept"):
-			throw_object_still()
+#		if Input.is_action_just_pressed("ui_accept"):
+#			throw_object()
 
 	#if inAir:
 		#collision = move_and_collide(throw_direction * speed * delta)
@@ -40,7 +40,7 @@ func _physics_process(_delta):
 		
 #	self.position = player_node.global_position
 
-func throw_object_still():
+func throw_object():
 	inAir = true
 	picked = false
 	
@@ -49,7 +49,7 @@ func throw_object_still():
 	if raycast.is_colliding():
 		tween.interpolate_property(self, "position", global_position, player.throw_destination+player.current_direction.normalized()*-3, 0.25,Tween.TRANS_BACK,Tween.EASE_OUT)
 	else:
-		tween.interpolate_property(self, "position", global_position, player.throw_destination, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		tween.interpolate_property(self, "position", global_position, player.global_position + raycast.cast_to, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	tween.start()
 	#Creating a timer for the throw distance
 	throwtime = Timer.new()
