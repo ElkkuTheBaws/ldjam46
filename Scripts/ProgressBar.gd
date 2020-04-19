@@ -10,6 +10,7 @@ onready var timer = get_node("Timer")
 func _ready() -> void:
 	visible = false;
 	min_value = get_parent().min_throw_distance
+	max_value = get_parent().max_throw_distance
 	
 	pass # Replace with function body.
 
@@ -29,4 +30,4 @@ func _on_Player_throw_length_changed(length) -> void:
 
 func _on_Timer_timeout() -> void:
 	visible = false
-	value = 10
+	value = get_parent().min_throw_distance

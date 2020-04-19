@@ -15,6 +15,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if get_visible_characters() > get_total_character_count():
+			if page == dialog.size() -1:
+				get_parent().queue_free()
 			if page < dialog.size() - 1:
 				page += 1
 				set_text(dialog[page])

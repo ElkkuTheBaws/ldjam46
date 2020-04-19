@@ -7,15 +7,18 @@ const right = Vector2.RIGHT
 const down = Vector2.DOWN
 const left = Vector2.LEFT
 
+#Variables related to throwable objects
 var picked : pickable
 export(int,100) var min_throw_distance
+export(int, 100) var max_throw_distance
 var charged = min_throw_distance
 var hasObject = false
-
+var descend = false
+var charging = false
 signal throw_length_changed(length)
-
 var current_direction = right
 var throw_destination = current_direction
+
 export (int, 0 , 1000) var MAX_SPEED = 500
 export (int, 0 , 5000) var ACCELERATION = 2000
 export (int, 0 , 200) var inertia = 50;
@@ -52,6 +55,10 @@ func _physics_process(delta):
 			picked.throw_object()
 			charged = min_throw_distance
 			hasObject = false
+			charging = false
+			
+	if Input.is_action_just_pressed("Reset"):
+		get_tree().reload_current_scene()
 	
 	set_current_direction()
 	
@@ -86,9 +93,19 @@ func set_current_direction():
 		current_direction = up
 
 func charge_throw():
-	if Input.is_action_pressed("ui_accept"):
+	charging = true
+	
+	if charged > max_throw_distance:
+		descend = true
+	if charged < min_throw_distance:
+		descend = false
+	if descend:
+		charged += -1
+	if not descend: 
 		charged += 1
-		emit_signal("throw_length_changed", charged)
+			
+			
+	emit_signal("throw_length_changed", charged)
 
 
 func _on_PickArea_body_entered(body):
