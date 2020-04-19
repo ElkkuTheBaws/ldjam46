@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Textures/alien_animation_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy1.gd" type="Script" id=2]
+[ext_resource path="res://Textures/27light_smooth.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.38441
@@ -157,6 +158,12 @@ start_node = "Idle"
 [node name="Enemy" type="KinematicBody2D"]
 collision_mask = 7
 script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+color = Color( 0.403922, 0.972549, 0.223529, 1 )
+shadow_enabled = true
+shadow_color = Color( 1, 1, 1, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
