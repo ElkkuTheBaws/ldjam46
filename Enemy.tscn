@@ -94,66 +94,66 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 19 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=22]
-blend_point_0/node = SubResource( 18 )
-blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 19 )
-blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 20 )
-blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 21 )
-blend_point_3/pos = Vector2( -1, 0 )
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "Run_Left"
+animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
-animation = "Run_Right"
+animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=12]
+blend_point_0/node = SubResource( 8 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 9 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 10 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 11 )
+blend_point_3/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Run_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Run_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Run_Down"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Run_UP"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=13]
-blend_point_0/node = SubResource( 9 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=17]
+blend_point_0/node = SubResource( 13 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 10 )
+blend_point_1/node = SubResource( 14 )
 blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 11 )
+blend_point_2/node = SubResource( 15 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 12 )
+blend_point_3/node = SubResource( 16 )
 blend_point_3/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
-[sub_resource type="AnimationNodeStateMachine" id=16]
-states/Idle/node = SubResource( 22 )
+[sub_resource type="AnimationNodeStateMachine" id=20]
+states/Idle/node = SubResource( 12 )
 states/Idle/position = Vector2( 344, 75 )
-states/Run/node = SubResource( 13 )
+states/Run/node = SubResource( 17 )
 states/Run/position = Vector2( 525, 75 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ) ]
+transitions = [ "Idle", "Run", SubResource( 18 ), "Run", "Idle", SubResource( 19 ) ]
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_mask = 7
@@ -169,7 +169,6 @@ shadow_color = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 4
-frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -194,10 +193,10 @@ anims/Run_Right = SubResource( 6 )
 anims/Run_UP = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 16 )
+tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 17 )
+parameters/playback = SubResource( 21 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, -0.0039711 )
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

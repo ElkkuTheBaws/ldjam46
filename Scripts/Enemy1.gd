@@ -4,7 +4,7 @@ export var speed = 200.0
 export var min_distance = 300.0
 onready var nav_2d : Navigation2D = get_node("../Navigation2D")	
 onready var pleijeri = get_node("../Player")	
-
+onready var line_2D = get_node("../Line2D")
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
@@ -37,6 +37,7 @@ func _on_PlayerDetector_body_entered(body: Node) -> void:
 func calculate_path():
 	var new_path = nav_2d.get_simple_path(self.global_position, pleijeri.position)
 	path = new_path
+	line_2D.points = new_path
 	if path.size() == 0:
 		return
 
