@@ -9,6 +9,7 @@ const left = Vector2.LEFT
 
 var picked : pickable
 var charged = 0
+var hasObject = false
 
 signal throw_length_changed(length)
 
@@ -34,12 +35,14 @@ func _physics_process(delta):
 		animationTree.set("parameters/Idle/blend_position", axis)
 		animationTree.set("parameters/Run/blend_position", axis)
 		animationState.travel("Run")
-	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
+	if not charged > 0:
+		motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
 	
 	if not picked == null and picked.can_pick:
 		
 		if Input.is_action_just_pressed("ui_pick"):
 			picked.picked = true
+			hasObject = true
 
 	if not picked == null and picked.picked:
 		if Input.is_action_pressed("ui_accept"):
@@ -47,6 +50,7 @@ func _physics_process(delta):
 		if Input.is_action_just_released("ui_accept"):
 			picked.throw_object()
 			charged = 0
+			hasObject = false
 	
 	set_current_direction()
 	
@@ -90,7 +94,8 @@ func _on_PickArea_body_entered(body):
 	if not body is pickable:
 		return
 	body.can_pick = true
-	picked = body
+	if not hasObject:
+		picked = body
 	
 
 
