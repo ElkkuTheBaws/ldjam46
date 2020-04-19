@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zombie.png-42c07bdbeb30872c54be6ab44c367780.stex"
+path="res://.import/alien_run right_2.png-3e4f42881bb5f928f095cc9329e25fe1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/sprites #1/zombie.png"
-dest_files=[ "res://.import/zombie.png-42c07bdbeb30872c54be6ab44c367780.stex" ]
+source_file="res://Textures/alien animations/run right/alien_run right_2.png"
+dest_files=[ "res://.import/alien_run right_2.png-3e4f42881bb5f928f095cc9329e25fe1.stex" ]
 
 [params]
 
