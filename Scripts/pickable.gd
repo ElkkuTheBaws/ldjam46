@@ -7,7 +7,6 @@ onready var raycast: = get_node("../Player/RayCast2D")
 
 var MASS = 500
 var speed = 200
-var throw_distance = 50
 var can_pick = false
 var picked = false
 var inAir = false

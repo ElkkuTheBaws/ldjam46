@@ -9,6 +9,8 @@ onready var timer = get_node("Timer")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false;
+	min_value = get_parent().min_throw_distance
+	
 	pass # Replace with function body.
 
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 
 
 func _on_Player_throw_length_changed(length) -> void:
-	if(length > 0):
+	if(length > get_parent().min_throw_distance):
 		visible = true
 		value = length
 		timer.stop()
@@ -27,4 +29,4 @@ func _on_Player_throw_length_changed(length) -> void:
 
 func _on_Timer_timeout() -> void:
 	visible = false
-	value = 0
+	value = 10
