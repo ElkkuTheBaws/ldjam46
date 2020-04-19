@@ -42,7 +42,7 @@ func calculate_path():
 		return
 
 func move_along_path(distance : float, delta) -> void:
-	print(path.size())
+#	print(path.size())
 	var start_point : = position
 	for i in range(path.size()):
 		var distance_to_next : = start_point.distance_to(path[0])
