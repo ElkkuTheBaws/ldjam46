@@ -1,6 +1,10 @@
-[gd_resource type="TileSet" load_steps=54 format=2]
+[gd_resource type="TileSet" load_steps=59 format=2]
 
 [ext_resource path="res://16x16_tiles_for_autotiling_transparent.png" type="Texture" id=2]
+
+[sub_resource type="NavigationPolygon" id=53]
+vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 8.04932, 14.423, 2.93282, 9.53909, 7.58417, 1.16664, 13.1658, 9.53909, 9.90985, 13.2602, 11.3053, 16, 16, 16, 16, 0, 0, 0, 0, 16, 8.04932, 16 )
@@ -13,11 +17,11 @@ polygon = PoolVector2Array( 8.51445, 12.5625, 5.2585, 10.4694, 8.04932, 2.79462,
 points = PoolVector2Array( 8.51445, 12.795, 5.02592, 10.2368, 8.51445, 1.63177, 11.7704, 9.77165 )
 
 [sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 12, 16, 4, 16, 4, 0, 12, 0 )
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="NavigationPolygon" id=5]
-vertices = PoolVector2Array( 16, 12, 0, 12, 0, 4, 16, 4 )
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 4 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
@@ -37,6 +41,20 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=54]
+vertices = PoolVector2Array( 4, 0, 4, 8, 0, 8, 0, 16, 16, 16, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=55]
+polygon = PoolVector2Array( 0, 0, 4, 0, 4, 8, 0, 8 )
+
+[sub_resource type="NavigationPolygon" id=56]
+vertices = PoolVector2Array( 0, 8, 0, 16, 16, 16, 16, 8, 12, 8, 12, 0, 0, 0, 0, 4 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=57]
+polygon = PoolVector2Array( 16, 0, 12, 0, 12, 8, 16, 8 )
 
 [sub_resource type="NavigationPolygon" id=12]
 vertices = PoolVector2Array( 0, 16, 12, 16, 12, 0, 0, 0 )
@@ -177,7 +195,7 @@ points = PoolVector2Array( 16, 0, 16, 12, 0, 12, 0, 0 )
 points = PoolVector2Array( 16, 12, 0, 12, 0, 0, 16, 0 )
 
 [resource]
-9/name = "16x16_tiles_for_autotiling_transparent.png 9"
+9/name = "autotile_walls"
 9/texture = ExtResource( 2 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
@@ -273,7 +291,7 @@ points = PoolVector2Array( 16, 12, 0, 12, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
-11/name = "16x16_tiles_for_autotiling_transparent.png 11"
+11/name = "floor_nav"
 11/texture = ExtResource( 2 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
@@ -281,13 +299,14 @@ points = PoolVector2Array( 16, 12, 0, 12, 0, 0, 16, 0 )
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
 11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 53 )
 11/shape_offset = Vector2( 0, 0 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 11/shape_one_way = false
 11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 0
-12/name = "16x16_tiles_for_autotiling_transparent.png 12"
+12/name = "spruce"
 12/texture = ExtResource( 2 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
@@ -340,7 +359,7 @@ points = PoolVector2Array( 16, 12, 0, 12, 0, 0, 16, 0 )
 14/shape_one_way_margin = 0.0
 14/shapes = [  ]
 14/z_index = 0
-15/name = "16x16_tiles_for_autotiling_transparent.png 15"
+15/name = "Autotile water"
 15/texture = ExtResource( 2 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
@@ -400,3 +419,49 @@ points = PoolVector2Array( 16, 12, 0, 12, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 15/z_index = 0
+16/name = "floor_no_nav"
+16/texture = ExtResource( 2 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 48, 16, 16 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "single wall 1"
+17/texture = ExtResource( 2 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 48, 16, 16, 16 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/occluder = SubResource( 55 )
+17/navigation_offset = Vector2( 0, 0 )
+17/navigation = SubResource( 54 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+18/name = "sigle wall 2"
+18/texture = ExtResource( 2 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 64, 16, 16, 16 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/occluder = SubResource( 57 )
+18/navigation_offset = Vector2( 0, 0 )
+18/navigation = SubResource( 56 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
+18/shapes = [  ]
+18/z_index = 0
