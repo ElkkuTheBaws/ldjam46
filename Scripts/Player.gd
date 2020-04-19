@@ -17,15 +17,23 @@ var throw_destination = current_direction
 export (int, 0 , 1000) var MAX_SPEED = 500
 export (int, 0 , 5000) var ACCELERATION = 2000
 export (int, 0 , 200) var inertia = 50;
+
 var motion = Vector2.ZERO
+
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	var axis = get_input_axis()
 	
 	if axis == Vector2.ZERO:
 		apply_friction(ACCELERATION * delta)
+		animationState.travel("Idle")
 	else:
 		apply_movement(axis * delta * ACCELERATION)
+		animationTree.set("parameters/Idle/blend_position", axis)
+		animationTree.set("parameters/Run/blend_position", axis)
+		animationState.travel("Run")
 	motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
 	
 	if not picked == null and picked.can_pick:
