@@ -26,7 +26,7 @@ func _physics_process(_delta):
 	if(picked):
 		self.collision_layer = 2
 		self.collision_mask = 2
-		self.position = player_node.global_position + Vector2(0,-5)
+		self.position = player_node.global_position
 		
 #		if Input.is_action_just_pressed("ui_accept"):
 #			throw_object()

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://View.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TILE_SET.tres" type="TileSet" id=3]
+
+[node name="Level1" type="YSort"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMapBackround" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 3 )
+format = 1
+
+[node name="Player" parent="Navigation2D" instance=ExtResource( 2 )]
+
+[node name="View" parent="." instance=ExtResource( 1 )]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Textures/player_animation_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/ProgressBar.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/ThrowMarker.gd" type="Script" id=4]
+[ext_resource path="res://Textures/effects/throw marker/throwmarker_3.png" type="Texture" id=5]
+[ext_resource path="res://Textures/effects/throw marker/throwmarker_0.png" type="Texture" id=6]
+[ext_resource path="res://Textures/effects/throw marker/throwmarker_2.png" type="Texture" id=7]
+[ext_resource path="res://Textures/effects/throw marker/throwmarker_1.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/RayCast2D.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -213,14 +218,27 @@ graph_offset = Vector2( -279.746, 8.16189 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=26]
 
+[sub_resource type="AnimatedTexture" id=27]
+flags = 4
+frames = 4
+fps = 10.8
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 8 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 7 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 5 )
+frame_3/delay_sec = 0.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 5
 script = ExtResource( 2 )
+min_throw_distance = 5
+max_throw_distance = 75
 MAX_SPEED = 120
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false
-position = Vector2( 0, -5 )
 script = ExtResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -278,8 +296,21 @@ active = true
 parameters/playback = SubResource( 26 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
+
+[node name="ThrowMarker" type="Sprite" parent="."]
+texture = SubResource( 27 )
+script = ExtResource( 4 )
+
+[node name="Timer2" type="Timer" parent="ThrowMarker"]
+wait_time = 0.2
+one_shot = true
+autostart = true
 [connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="." to="ThrowMarker" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
 [connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ProgressBar/Timer" to="ThrowMarker" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ThrowMarker/Timer2" to="ThrowMarker" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ThrowMarker/Timer2" to="ThrowMarker" method="_on_Timer2_timeout"]
