@@ -107,6 +107,7 @@ z_index = 1
 [node name="Goal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 240, 32 )
 rotation = -1.56642
+next_level = 2
 dialog = [ "Maybe I should get the president first" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
