@@ -1,5 +1,5 @@
 extends pickable
-class_name President
+class_name president
 
 
 func get_class():

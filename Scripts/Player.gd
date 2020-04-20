@@ -74,7 +74,7 @@ func _physics_process(delta):
 			picked.throw_object()
 #			print(charged)
 			var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
-			print(norm)
+#			print(norm)
 			emit_signal("screen_shake", 10 + norm * 100, 2, 1 + norm * 2) #Amount, decay and offset
 			animationState.travel("Throws")
 			charged = min_throw_distance
