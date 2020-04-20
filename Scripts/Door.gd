@@ -1,3 +1,4 @@
+tool
 extends KinematicBody2D
 
 
@@ -26,8 +27,19 @@ func _ready() -> void:
 				dooractive = preload("res://Textures/doors/16x16 tile doors_4.png")
 				door_sprite.texture = doorup
 
-
-
+func _process(delta):
+	if Engine.editor_hint:
+		match doors:
+			0:
+				doorup = preload("res://Textures/doors/16x16 tile doors_0.png")
+				doordown = preload("res://Textures/doors/16x16 tile doors_2.png")
+				dooractive = preload("res://Textures/doors/16x16 tile doors_1.png")
+				door_sprite.texture = doorup
+			1:
+				doorup = preload("res://Textures/doors/16x16 tile doors_3.png")
+				doordown = preload("res://Textures/doors/16x16 tile doors_5.png")
+				dooractive = preload("res://Textures/doors/16x16 tile doors_4.png")
+				door_sprite.texture = doorup
 func _on_Pressureplate_activated(isActivated, id) -> void:
 	if self.id == id:
 		if isActivated:
