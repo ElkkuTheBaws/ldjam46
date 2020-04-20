@@ -1,6 +1,7 @@
 extends Panel
 
-var spritePresident = load("res://Textures/UI/itemslot/president.png")
+var spritePresident = load("res://Textures/UI/dialogue images/president.png")
+var spritePlayer = load("res://Textures/UI/dialogue images/taxpayer.png")
 
 export(Array, String) var dialog
 onready var textLabel = get_node("RichTextLabel")
@@ -35,7 +36,9 @@ func _input(event: InputEvent) -> void:
 				reset()
 				get_tree().paused = false
 				emit_signal("talking_finished")
-				GlobalVariables.firstTime = false
+				if GlobalVariables.firstTime:
+					GlobalVariables.firstTime = false
+					wait = false
 			if talking and not dialog == null and page < dialog.size() - 1:
 				page += 1
 				textLabel.set_text(dialog[page])
@@ -57,8 +60,11 @@ func _on_say(textdialog, talker) -> void:
 			wait = false
 			return
 		dialog = textdialog
+		print(talker is player)
 		if talker.get_class() == "President":
 			sprite.texture = spritePresident
+		if talker is player:
+			sprite.texture = spritePlayer
 		visible = true
 		textLabel.set_text(dialog[0])
 		textLabel.set_visible_characters(0)
