@@ -74,6 +74,6 @@ func throw_object():
 func _on_throwtime_timeout():
 	inAir = false
 	self.collision_layer = 1
-	self.collision_mask = 1
+	self.collision_mask = 15
 
 

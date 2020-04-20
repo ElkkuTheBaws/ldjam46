@@ -1,0 +1,166 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://President.gd" type="Script" id=1]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/PressurePlate.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Goal.gd" type="Script" id=4]
+[ext_resource path="res://TILE_SET.tres" type="TileSet" id=5]
+[ext_resource path="res://Scripts/Barrel.gd" type="Script" id=6]
+[ext_resource path="res://Levels/Camera.gd" type="Script" id=7]
+[ext_resource path="res://UI/DialogBox.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=10]
+[ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://President.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://View.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Particles.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=21]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=22]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.28
+emission_shape = 1
+emission_sphere_radius = 200.0
+flag_disable_z = true
+spread = 136.78
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.37
+angular_velocity = 2.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.5
+linear_accel_random = 0.54
+radial_accel = 0.1
+radial_accel_random = 0.11
+tangential_accel = -1.0
+tangential_accel_random = 0.46
+damping = 1.0
+scale_random = 0.59
+color = Color( 0.219608, 0.219608, 0.192157, 0.47451 )
+hue_variation = 0.1
+hue_variation_random = 0.69
+
+[node name="Level4" type="YSort"]
+script = ExtResource( 21 )
+introText = [ "OH LORD!", "This is getting out of hand, now there's two of them!", "Whatever you do, don't panic.", "........................", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH! DON'T LET THEM TOUCH ME!!" ]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMapBackround" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 16, 0, -65536, 16, 0, -65535, 16, 0, -65534, 16, 0, -65533, 16, 0, -65532, 16, 0, -65531, 16, 0, -65530, 16, 0, -65529, 16, 0, -65528, 16, 0, -65527, 16, 0, -65526, 16, 0, -65525, 16, 0, -65524, 16, 0, -65523, 16, 0, -65522, 16, 0, -65521, 16, 0, -65520, 16, 0, 65535, 16, 0, 0, 16, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 7, 16, 0, 8, 16, 0, 9, 16, 0, 10, 16, 0, 11, 16, 0, 12, 16, 0, 13, 16, 0, 14, 16, 0, 15, 16, 0, 16, 16, 0, 131071, 16, 0, 65536, 16, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 16, 0, 65544, 16, 0, 65545, 16, 0, 65546, 16, 0, 65547, 16, 0, 65548, 16, 0, 65549, 16, 0, 65550, 16, 0, 65551, 16, 0, 65552, 16, 0, 196607, 16, 0, 131072, 16, 0, 131073, 16, 0, 131074, 16, 0, 131075, 16, 0, 131076, 16, 0, 131077, 16, 0, 131078, 16, 0, 131079, 16, 0, 131080, 16, 0, 131081, 16, 0, 131082, 16, 0, 131083, 16, 0, 131084, 16, 0, 131085, 16, 0, 131086, 16, 0, 131087, 16, 0, 131088, 16, 0, 262143, 16, 0, 196608, 16, 0, 196609, 16, 0, 196610, 16, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 16, 0, 196616, 16, 0, 196617, 16, 0, 196618, 16, 0, 196619, 16, 0, 196620, 16, 0, 196621, 16, 0, 196622, 16, 0, 196623, 16, 0, 196624, 16, 0, 327679, 16, 0, 262144, 16, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 16, 0, 262149, 16, 0, 262150, 16, 0, 262151, 16, 0, 262152, 16, 0, 262153, 16, 0, 262154, 16, 0, 262155, 16, 0, 262156, 16, 0, 262157, 16, 0, 262158, 16, 0, 262159, 16, 0, 262160, 16, 0, 393215, 16, 0, 327680, 16, 0, 327681, 16, 0, 327682, 16, 0, 327683, 16, 0, 327684, 16, 0, 327685, 16, 0, 327686, 16, 0, 327687, 16, 0, 327688, 16, 0, 327689, 16, 0, 327690, 16, 0, 327691, 16, 0, 327692, 16, 0, 327693, 16, 0, 327694, 16, 0, 327695, 16, 0, 327696, 16, 0, 458751, 16, 0, 393216, 16, 0, 393217, 16, 0, 393218, 16, 0, 393219, 16, 0, 393220, 16, 0, 393221, 16, 0, 393222, 16, 0, 393223, 16, 0, 393224, 16, 0, 393225, 16, 0, 393226, 16, 0, 393227, 16, 0, 393228, 16, 0, 393229, 16, 0, 393230, 16, 0, 393231, 16, 0, 393232, 16, 0, 524287, 16, 0, 458752, 16, 0, 458753, 16, 0, 458754, 16, 0, 458755, 16, 0, 458756, 16, 0, 458757, 16, 0, 458758, 16, 0, 458759, 16, 0, 458760, 16, 0, 458761, 16, 0, 458762, 16, 0, 458763, 16, 0, 458764, 16, 0, 458765, 16, 0, 458766, 16, 0, 458767, 16, 0, 458768, 16, 0, 589823, 16, 0, 524288, 16, 0, 524289, 16, 0, 524290, 16, 0, 524291, 16, 0, 524292, 16, 0, 524293, 16, 0, 524294, 16, 0, 524295, 16, 0, 524296, 16, 0, 524297, 16, 0, 524298, 16, 0, 524299, 16, 0, 524300, 16, 0, 524301, 16, 0, 524302, 16, 0, 524303, 16, 0, 524304, 16, 0, 655359, 16, 0, 589824, 16, 0, 589825, 16, 0, 589826, 16, 0, 589827, 16, 0, 589828, 16, 0, 589829, 16, 0, 589830, 16, 0, 589831, 16, 0, 589832, 16, 0, 589833, 16, 0, 589834, 16, 0, 589835, 16, 0, 589836, 16, 0, 589837, 16, 0, 589838, 16, 0, 589839, 16, 0, 589840, 16, 0, 720895, 16, 0, 655360, 16, 0, 655361, 16, 0, 655362, 16, 0, 655363, 16, 0, 655364, 16, 0, 655365, 16, 0, 655366, 16, 0, 655367, 16, 0, 655368, 16, 0, 655369, 16, 0, 655370, 16, 0, 655371, 16, 0, 655372, 16, 0, 655373, 16, 0, 655374, 16, 0, 655375, 16, 0, 655376, 16, 0 )
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 12
+collision_mask = 12
+format = 1
+tile_data = PoolIntArray( -131062, 20, 0, -131061, 20, 0, -131060, 20, 0, -131059, 20, 0, -131058, 20, 0, -131057, 20, 0, -131056, 20, 0, -131055, 20, 0, -65519, 20, 0, 65535, 11, 0, 0, 12, 0, 1, 11, 0, 2, 12, 0, 3, 11, 0, 4, 11, 0, 5, 12, 0, 6, 12, 0, 7, 11, 0, 8, 11, 0, 9, 11, 0, 10, 11, 0, 11, 12, 0, 12, 11, 0, 13, 11, 0, 14, 11, 0, 15, 11, 0, 17, 20, 0, 131071, 11, 0, 65536, 12, 0, 65537, 11, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 11, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 65548, 11, 0, 65549, 11, 0, 65550, 11, 0, 65551, 11, 0, 65553, 20, 0, 196607, 11, 0, 131072, 11, 0, 131078, 36, 0, 131089, 20, 0, 196610, 12, 0, 196611, 11, 0, 196612, 11, 0, 196613, 11, 0, 196614, 11, 0, 196615, 11, 0, 196616, 11, 0, 196617, 12, 0, 196618, 11, 0, 196619, 11, 0, 196620, 9, 0, 196621, 9, 1, 196622, 33, 0, 196623, 34, 0, 196624, 9, 2, 196625, 20, 0, 327679, 20, 65537, 262144, 12, 0, 262145, 11, 0, 262146, 11, 0, 262147, 11, 0, 262148, 11, 0, 262149, 11, 0, 262150, 11, 0, 262151, 11, 0, 262152, 11, 0, 262153, 11, 0, 262154, 11, 0, 262155, 11, 0, 262156, 9, 65536, 262157, 9, 65537, 262158, 9, 65537, 262159, 9, 65537, 262160, 9, 131075, 262161, 9, 2, 393215, 20, 65537, 327680, 11, 0, 327681, 11, 0, 327682, 11, 0, 327683, 11, 0, 327684, 11, 0, 327685, 11, 0, 327686, 11, 0, 327687, 11, 0, 327688, 11, 0, 327689, 11, 0, 327690, 11, 0, 327691, 11, 0, 327693, 9, 65537, 327694, 9, 65537, 327695, 9, 65537, 327696, 9, 65537, 327697, 9, 65538, 458751, 20, 65537, 393216, 12, 0, 393217, 11, 0, 393218, 11, 0, 393219, 11, 0, 393220, 11, 0, 393221, 11, 0, 393222, 11, 0, 393223, 11, 0, 393224, 11, 0, 393225, 11, 0, 393226, 11, 0, 393227, 11, 0, 393228, 9, 65536, 393229, 9, 65537, 393230, 9, 65537, 393231, 9, 65537, 393232, 9, 65537, 393233, 9, 65538, 524287, 20, 65537, 458752, 20, 0, 458753, 20, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0, 458762, 12, 0, 458763, 11, 0, 458764, 9, 65536, 458765, 9, 65537, 458766, 9, 65537, 458767, 9, 65537, 458768, 9, 65537, 458769, 9, 65538, 589823, 20, 65537, 524288, 12, 0, 524289, 20, 65537, 524290, 20, 0, 524291, 11, 0, 524292, 11, 0, 524293, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524299, 11, 0, 524300, 9, 131072, 524301, 31, 0, 524302, 9, 131073, 524303, 32, 0, 524304, 9, 131073, 524305, 9, 131074, 589825, 12, 0, 589826, 20, 65537, 589827, 20, 0, 589828, 20, 0, 589829, 20, 0, 589830, 20, 1, 589831, 20, 0, 589832, 20, 0, 589833, 20, 0, 589834, 20, 0, 589835, 20, 0, 589836, 20, 0, 589837, 20, 0, 589838, 11, 0, 589839, 11, 0, 589841, 20, 0, 655366, 20, 65537, 655373, 20, 65537, 655375, 12, 0, 655376, 12, 0, 655377, 20, 0, 720907, 20, 0, 720908, 20, 0, 720909, 20, 0, 720910, 20, 0, 720911, 20, 0, 720912, 20, 0, 720913, 20, 0 )
+
+[node name="TileMapNoCollision" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( 3, 37, 0, 8, 37, 0, 65541, 38, 0, 65544, 38, 0, 65546, 38, 0, 131073, 15, 0, 131074, 15, 4, 131075, 15, 4, 131076, 15, 4, 131077, 15, 4, 131078, 15, 4, 131079, 15, 4, 131080, 15, 4, 131081, 15, 4, 131082, 15, 4, 131083, 15, 4, 131084, 15, 4, 131085, 15, 4, 131086, 15, 4, 131087, 15, 4, 131088, 15, 4, 131089, 15, 0, 262142, 15, 0, 262143, 15, 4, 196608, 15, 4, 196609, 15, 65537, 196614, 35, 0, 262149, 35, 0, 262150, 35, 0, 262151, 35, 0, 262152, 35, 0, 262153, 35, 0, 262154, 35, 0, 262155, 35, 0, 327680, 35, 0, 327681, 35, 0, 327682, 35, 0, 327683, 35, 0, 327684, 35, 0, 327685, 35, 0, 393221, 35, 0, 458757, 35, 0, 458758, 35, 0, 524294, 35, 0 )
+
+[node name="View" type="Node2D" parent="." instance=ExtResource( 19 )]
+script = ExtResource( 7 )
+
+[node name="Pressureplate" type="Node2D" parent="." instance=ExtResource( 14 )]
+position = Vector2( 58.9382, 127.305 )
+script = ExtResource( 3 )
+
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 51.8604, 73.5254 )
+z_index = 1
+collision_mask = 13
+script = ExtResource( 9 )
+MAX_SPEED = 120
+
+[node name="Door" type="KinematicBody2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 200.059, 87.9195 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 10 )
+doors = 1
+
+[node name="President" type="KinematicBody2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 69.785, 72.476 )
+z_index = 1
+script = ExtResource( 1 )
+dialog = [ "Okay, okay. THINK! Maybe you can try throwing them somewhere where they can't get to me" ]
+
+[node name="Particles2D" type="Particles2D" parent="." instance=ExtResource( 20 )]
+position = Vector2( 121.298, 72.2113 )
+amount = 500
+lifetime = 4.0
+randomness = 0.51
+process_material = SubResource( 1 )
+
+[node name="Barrel" type="KinematicBody2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( 194.625, 65.8984 )
+z_index = 1
+script = ExtResource( 6 )
+
+[node name="Goal" type="KinematicBody2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 243.848, 94.3763 )
+script = ExtResource( 4 )
+dialog = [ "Am I forgetting something?" ]
+
+[node name="Enemy" parent="." instance=ExtResource( 22 )]
+position = Vector2( 186.922, 97.5027 )
+collision_mask = 15
+
+[node name="Enemy2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 186.922, 72.3485 )
+collision_mask = 15
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="GUI" type="MarginContainer" parent="CanvasLayer" instance=ExtResource( 18 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 205.287
+margin_top = 8.29894
+margin_right = -10.7126
+margin_bottom = -113.701
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" type="Panel" parent="CanvasLayer" instance=ExtResource( 16 )]
+visible = false
+margin_left = -5.13644
+margin_top = 62.3031
+margin_right = -5.13644
+margin_bottom = 62.3031
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+dialog = [ "Morjesta moi" ]
+[connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
+[connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
+[connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
+[connection signal="throw_length_changed" from="Player" to="Player/ThrowMarker" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="Player" to="Player/ProgressBar" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="Player" to="Player/RayCast2D" method="_on_Player_throw_length_changed"]
+[connection signal="dead" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="Goal" to="CanvasLayer/DialogBox" method="_on_say"]
