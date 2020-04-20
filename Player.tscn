@@ -19,10 +19,21 @@ extents = Vector2( 2.33907, 2.88846 )
 radius = 8.08777
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.988235, 0, 0, 1 )
+bg_color = Color( 0.815686, 0.27451, 0.282353, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.870588, 0.933333, 0.839216, 0 )
+corner_detail = 4
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.364706, 0.364706, 0.364706, 1 )
+[sub_resource type="StyleBoxFlat" id=61]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.870588, 0.933333, 0.839216, 1 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "Idle_Down"
@@ -609,12 +620,12 @@ shape = SubResource( 2 )
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = -10.2566
-margin_top = -9.0
-margin_right = 10.7434
-margin_bottom = -6.0
+margin_left = -7.57341
+margin_top = -9.94009
+margin_right = 7.42659
+margin_bottom = -5.94009
 custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/bg = SubResource( 61 )
 min_value = 10.0
 max_value = 75.0
 value = 10.0
@@ -674,9 +685,9 @@ stream = ExtResource( 9 )
 
 [node name="AudioStreamPlayerThrow" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
-[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ThrowMarker" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
 [connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
