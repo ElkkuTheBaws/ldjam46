@@ -109,6 +109,8 @@ func _physics_process(delta):
 			"President":
 				interractObj.talk()
 	
+func get_class():
+	return "Player"
 	
 func get_input_axis():
 	var axis = Vector2.ZERO

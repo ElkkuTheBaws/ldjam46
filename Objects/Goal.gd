@@ -5,6 +5,8 @@ export var next_level = 1
 export (Array, String) var dialog
 signal say(dialog, talker)
 
+onready var theplayer = get_node("../Player")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,4 +22,4 @@ func _on_Area2D_body_entered(body: Node) -> void:
 			GlobalVariables.firstTime = true
 			get_tree().change_scene("res://Levels/Level"+ str(next_level)+ ".tscn")
 		else:
-			emit_signal("say", dialog, player)
+			emit_signal("say", dialog, theplayer)
