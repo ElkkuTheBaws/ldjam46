@@ -10,6 +10,8 @@ var page = 0
 var talking = false
 var wait = false
 
+signal talking_finished
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +34,7 @@ func _input(event: InputEvent) -> void:
 			if page == dialog.size() -1:
 				reset()
 				get_tree().paused = false
+				emit_signal("talking_finished")
 			if talking and not dialog == null and page < dialog.size() - 1:
 				page += 1
 				textLabel.set_text(dialog[page])

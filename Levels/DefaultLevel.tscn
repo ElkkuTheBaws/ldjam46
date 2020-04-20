@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://View.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,8 +7,46 @@
 [ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://President.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/PressurePlate.gd" type="Script" id=8]
+[ext_resource path="res://Objects/Goal.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Barrel.gd" type="Script" id=12]
+[ext_resource path="res://Levels/Camera.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=14]
+[ext_resource path="res://UI/DialogBox.gd" type="Script" id=15]
+[ext_resource path="res://President.gd" type="Script" id=16]
+[ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Particles.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=20]
 
-[node name="Level1" type="YSort"]
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.28
+emission_shape = 1
+emission_sphere_radius = 200.0
+flag_disable_z = true
+spread = 136.78
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.37
+angular_velocity = 2.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.5
+linear_accel_random = 0.54
+radial_accel = 0.1
+radial_accel_random = 0.11
+tangential_accel = -1.0
+tangential_accel_random = 0.46
+damping = 1.0
+scale_random = 0.59
+color = Color( 0.219608, 0.219608, 0.192157, 0.47451 )
+hue_variation = 0.1
+hue_variation_random = 0.69
+
+[node name="DefaultLevel" type="YSort"]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -21,36 +59,90 @@ tile_data = PoolIntArray( 0, 11, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 1
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-collision_layer = 4
+collision_layer = 12
 format = 1
-tile_data = PoolIntArray( 0, 9, 0, 1, 9, 1, 2, 9, 1, 3, 9, 1, 4, 9, 1, 5, 9, 1, 6, 9, 1, 7, 9, 1, 8, 9, 1, 9, 9, 1, 10, 9, 1, 11, 9, 1, 12, 9, 1, 13, 9, 1, 14, 9, 1, 15, 9, 2, 65536, 9, 65536, 65537, 9, 65537, 65538, 9, 65537, 65539, 9, 65537, 65540, 9, 65537, 65541, 9, 65537, 65542, 9, 65537, 65543, 9, 65537, 65544, 9, 65537, 65545, 9, 65537, 65546, 9, 65537, 65547, 9, 65537, 65548, 9, 65537, 65549, 9, 65537, 65550, 9, 65537, 65551, 9, 65538, 131072, 9, 65536, 131073, 9, 65537, 131074, 9, 65537, 131075, 9, 65537, 131076, 9, 65537, 131077, 9, 65537, 131078, 9, 65537, 131079, 9, 65537, 131080, 9, 65537, 131081, 9, 65537, 131082, 9, 65537, 131083, 9, 65537, 131084, 9, 65537, 131085, 9, 65537, 131086, 9, 65537, 131087, 9, 65538, 196608, 9, 65536, 196609, 9, 65537, 196610, 9, 65537, 196611, 9, 65537, 196612, 9, 65537, 196613, 9, 65537, 196614, 9, 65537, 196615, 9, 65537, 196616, 9, 65537, 196617, 9, 65537, 196618, 9, 65537, 196619, 9, 65537, 196620, 9, 65537, 196621, 9, 65537, 196622, 9, 65537, 196623, 9, 65538, 262144, 9, 65536, 262145, 9, 65537, 262146, 9, 65537, 262147, 9, 65537, 262148, 9, 65537, 262149, 9, 65537, 262150, 9, 65537, 262151, 9, 65537, 262152, 9, 65537, 262153, 9, 65537, 262154, 9, 65537, 262155, 9, 65537, 262156, 9, 65537, 262157, 9, 65537, 262158, 9, 65537, 262159, 9, 65538, 327680, 9, 65536, 327681, 9, 65537, 327682, 9, 65537, 327683, 9, 65537, 327684, 9, 65537, 327685, 9, 65537, 327686, 9, 65537, 327687, 9, 65537, 327688, 9, 65537, 327689, 9, 65537, 327690, 9, 65537, 327691, 9, 65537, 327692, 9, 65537, 327693, 9, 65537, 327694, 9, 65537, 327695, 9, 65538, 393216, 9, 65536, 393217, 9, 65537, 393218, 9, 65537, 393219, 9, 65537, 393220, 9, 65537, 393221, 9, 65537, 393222, 9, 65537, 393223, 9, 65537, 393224, 9, 65537, 393225, 9, 65537, 393226, 9, 65537, 393227, 9, 65537, 393228, 9, 65537, 393229, 9, 65537, 393230, 9, 65537, 393231, 9, 65538, 458752, 9, 65536, 458753, 9, 65537, 458754, 9, 65537, 458755, 9, 65537, 458756, 9, 65537, 458757, 9, 65537, 458758, 9, 65537, 458759, 9, 65537, 458760, 9, 65537, 458761, 9, 65537, 458762, 9, 65537, 458763, 9, 65537, 458764, 9, 65537, 458765, 9, 65537, 458766, 9, 65537, 458767, 9, 65538, 524288, 9, 65536, 524289, 9, 65537, 524290, 9, 65537, 524291, 9, 65537, 524292, 9, 65537, 524293, 9, 65537, 524294, 9, 65537, 524295, 9, 65537, 524296, 9, 65537, 524297, 9, 65537, 524298, 9, 65537, 524299, 9, 65537, 524300, 9, 65537, 524301, 9, 65537, 524302, 9, 65537, 524303, 9, 65538, 589824, 9, 131072, 589825, 9, 131073, 589826, 9, 131073, 589827, 9, 131073, 589828, 9, 131073, 589829, 9, 131073, 589830, 9, 131073, 589831, 9, 131073, 589832, 9, 131073, 589833, 9, 131073, 589834, 9, 131073, 589835, 9, 131073, 589836, 9, 131073, 589837, 9, 131073, 589838, 9, 131073, 589839, 9, 131074 )
+tile_data = PoolIntArray( 0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 13, 12, 0, 14, 12, 0, 15, 12, 0, 65536, 12, 0, 65537, 12, 0, 65538, 12, 0, 65539, 9, 0, 65540, 9, 1, 65541, 9, 1, 65542, 9, 1, 65543, 9, 1, 65544, 9, 1, 65545, 9, 1, 65546, 9, 1, 65547, 9, 1, 65548, 9, 1, 65549, 9, 2, 65550, 12, 0, 65551, 12, 0, 131072, 12, 0, 131073, 12, 0, 131074, 9, 65537, 131075, 9, 65536, 131076, 9, 65537, 131077, 9, 65537, 131078, 9, 65537, 131079, 9, 65537, 131080, 9, 65537, 131081, 9, 65537, 131082, 9, 65537, 131083, 9, 65537, 131084, 9, 65537, 131085, 9, 65538, 131086, 12, 0, 131087, 12, 0, 196609, 9, 65537, 196611, 9, 65536, 196612, 9, 65537, 196613, 9, 65537, 196614, 9, 65537, 196615, 9, 65537, 196616, 9, 65537, 196617, 9, 65537, 196618, 9, 65537, 196619, 9, 65537, 196620, 9, 65537, 196621, 9, 65538, 196623, 12, 0, 327678, 15, 0, 327679, 15, 4, 262144, 15, 4, 262145, 15, 1, 262147, 9, 65536, 262148, 9, 65537, 262149, 9, 65537, 262150, 9, 65537, 262151, 9, 65537, 262152, 9, 65537, 262153, 9, 65537, 262154, 9, 65537, 262155, 9, 65537, 262156, 9, 65537, 327680, 12, 0, 327681, 15, 65536, 327682, 15, 1, 327683, 9, 65536, 327684, 9, 65537, 327685, 9, 65537, 327686, 9, 65537, 327687, 9, 65537, 327688, 9, 65537, 327689, 9, 65537, 327690, 9, 65537, 327691, 9, 65537, 327692, 9, 65537, 327693, 9, 65538, 327695, 12, 0, 393216, 12, 0, 393217, 12, 0, 393218, 15, 65538, 393219, 9, 65536, 393220, 9, 65537, 393221, 9, 65537, 393222, 9, 65537, 393223, 9, 65537, 393224, 9, 65537, 393225, 9, 65537, 393226, 9, 65537, 393227, 9, 65537, 393228, 9, 65537, 393229, 9, 65538, 393230, 12, 0, 393231, 12, 0, 458752, 12, 0, 458753, 12, 0, 458754, 15, 65538, 458755, 9, 65536, 458756, 9, 65537, 458757, 9, 65537, 458758, 9, 65537, 458759, 9, 65537, 458760, 9, 65537, 458761, 9, 65537, 458762, 9, 65537, 458763, 9, 65537, 458764, 9, 65537, 458765, 9, 65538, 458766, 12, 0, 458767, 12, 0, 524288, 12, 0, 524289, 9, 65537, 524290, 15, 65538, 524291, 9, 65536, 524292, 9, 65537, 524293, 9, 65537, 524294, 9, 65537, 524295, 9, 65537, 524296, 9, 65537, 524297, 9, 65537, 524298, 9, 65537, 524299, 9, 65537, 524300, 9, 65537, 524301, 9, 65538, 524302, 12, 0, 524303, 12, 0, 589824, 12, 0, 589825, 9, 65537, 589826, 15, 65538, 589827, 9, 131072, 589828, 9, 131073, 589829, 9, 131073, 589830, 9, 131073, 589831, 9, 131073, 589832, 9, 131073, 589833, 9, 131073, 589834, 9, 131073, 589835, 9, 131073, 589836, 9, 131073, 589837, 9, 131074, 589838, 12, 0, 589839, 12, 0, 655362, 15, 0, 655373, 12, 0 )
 
-[node name="View" parent="." instance=ExtResource( 1 )]
+[node name="View" type="Node2D" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 13 )
 
-[node name="Pressureplate" parent="." instance=ExtResource( 5 )]
-position = Vector2( 212.543, 49.9287 )
+[node name="Pressureplate" type="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 74.0753, 77.275 )
+script = ExtResource( 8 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 118.251, 64.4534 )
 z_index = 1
 collision_mask = 13
+script = ExtResource( 10 )
+MAX_SPEED = 120
+
+[node name="Door" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 210.31, 72.6032 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 14 )
+
+[node name="President" type="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 133.289, 65.0534 )
+z_index = 1
+script = ExtResource( 16 )
+dialog = [ "Hello stranger", "fuck you" ]
+
+[node name="President2" type="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 160.401, 93.0399 )
+script = ExtResource( 16 )
+dialog = [ "oon presidentti 2", "tuplapisteviivadeedee" ]
+
+[node name="Particles2D" type="Particles2D" parent="." instance=ExtResource( 18 )]
+position = Vector2( 121.298, 72.2113 )
+amount = 500
+lifetime = 4.0
+randomness = 0.51
+process_material = SubResource( 1 )
+
+[node name="Barrel" type="KinematicBody2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( 138.126, 100.733 )
+z_index = 1
+script = ExtResource( 12 )
+
+[node name="Goal" type="KinematicBody2D" parent="." instance=ExtResource( 19 )]
+position = Vector2( 240.549, 73.3457 )
+scale = Vector2( 0.38, 0.38 )
+script = ExtResource( 9 )
+dialog = [ "Maybe I should get the president first" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="DialogBox" type="Panel" parent="CanvasLayer" instance=ExtResource( 20 )]
+margin_left = -5.13644
+margin_top = 62.3031
+margin_right = -5.13644
+margin_bottom = 62.3031
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+dialog = [ "Morjesta moi" ]
+
+[node name="GUI" type="MarginContainer" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 212.259
 margin_top = 7.38959
 margin_right = -3.74065
 margin_bottom = -114.61
-
-[node name="Door" parent="." instance=ExtResource( 7 )]
-position = Vector2( 184.479, 87.6818 )
-collision_layer = 8
-collision_mask = 8
-
-[node name="President" parent="." instance=ExtResource( 6 )]
-position = Vector2( 133.289, 65.0534 )
-z_index = 1
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
+[connection signal="throw_length_changed" from="Player" to="Player/ProgressBar" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="Player" to="Player/RayCast2D" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="Player" to="Player/ThrowMarker" method="_on_Player_throw_length_changed"]
+[connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="President2" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="Goal" to="CanvasLayer/DialogBox" method="_on_say"]
