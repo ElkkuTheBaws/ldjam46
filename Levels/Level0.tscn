@@ -64,6 +64,7 @@ z_index = 1
 [node name="Goal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 240.549, 73.3457 )
 scale = Vector2( 0.38, 0.38 )
+dialog = [ "Maybe I should get the president first" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -84,3 +85,4 @@ margin_bottom = -114.61
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
 [connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="say" from="President2" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="Goal" to="CanvasLayer/DialogBox" method="_on_say"]
