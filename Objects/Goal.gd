@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body is player:
 		if body.hasObject and body.picked.get_class() == "President":
+			GlobalVariables.firstTime = true
 			get_tree().change_scene("res://Levels/Level"+ str(next_level)+ ".tscn")
 		else:
 			emit_signal("say", dialog, player)

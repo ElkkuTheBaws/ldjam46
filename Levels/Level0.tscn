@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=2]
@@ -10,10 +10,13 @@
 [ext_resource path="res://President.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=11]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=15]
 
 [node name="Level0" type="YSort"]
 pause_mode = 1
+script = ExtResource( 11 )
+introText = [ "LORD SAVE US!", "What if they find us here, Tax Payer? We are stuck.", "We need to get back to the White House. Why? For personal reasons. ", " *what a nosey guy this Tax Payer*", "You know what? I won't move an inch myself. I guess you'll have to carry me.", "Now come on, find us a way out of here." ]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -77,6 +80,7 @@ margin_left = -5.13644
 margin_top = 62.3031
 margin_right = -5.13644
 margin_bottom = 62.3031
+[connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]

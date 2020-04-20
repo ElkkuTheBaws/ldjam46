@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Textures/tank.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=15]
 [ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=20]
 
@@ -40,6 +41,8 @@ hue_variation = 0.1
 hue_variation_random = 0.69
 
 [node name="Level1" type="YSort"]
+script = ExtResource( 12 )
+introText = [ "Whew, you have strong arms Tax.", "Wait a minute... Are those...?", "AAAAAAAALIEEEEEEENSS! AAAAAAAAAAH!", ".......oh they can't get to us.", "Yeah, yeah, ha ha. No I wasn't scared.", "Now, go find a way inside that house. I am just going to, you know, survey the area." ]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -88,7 +91,7 @@ collision_mask = 8
 [node name="President" parent="." instance=ExtResource( 8 )]
 position = Vector2( 30.512, 71.435 )
 z_index = 1
-dialog = [ "Please save me, Tax Payer!", "*niisk*" ]
+dialog = [ "Hmh, do you smell pee? Weird, I know." ]
 
 [node name="Particles2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 121.298, 72.2113 )
@@ -133,6 +136,7 @@ position = Vector2( 176.06, 55.8746 )
 
 [node name="Barrel3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 64, 48 )
+[connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]

@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 				reset()
 				get_tree().paused = false
 				emit_signal("talking_finished")
+				GlobalVariables.firstTime = false
 			if talking and not dialog == null and page < dialog.size() - 1:
 				page += 1
 				textLabel.set_text(dialog[page])
