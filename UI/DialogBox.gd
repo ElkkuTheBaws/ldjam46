@@ -60,7 +60,6 @@ func _on_say(textdialog, talker) -> void:
 			wait = false
 			return
 		dialog = textdialog
-		print(talker is player)
 		if talker.get_class() == "President":
 			sprite.texture = spritePresident
 		if talker is player:
