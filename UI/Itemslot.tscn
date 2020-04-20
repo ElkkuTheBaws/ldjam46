@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/UI/itemslot/empty.png" type="Texture" id=1]
+[ext_resource path="res://UI/Itemslot.gd" type="Script" id=2]
+
+[node name="Itemslot" type="TextureRect"]
+margin_right = 47.0
+margin_bottom = 38.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

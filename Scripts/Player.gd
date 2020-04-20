@@ -8,7 +8,7 @@ const down = Vector2.DOWN
 const left = Vector2.LEFT
 
 #Variables related to throwable objects
-var picked : pickable
+var picked
 export(int,100) var min_throw_distance = 5
 export(int, 100) var max_throw_distance =  75
 var charged = min_throw_distance
@@ -17,6 +17,7 @@ var descend = false
 var charging = false
 signal throw_length_changed(length)
 signal screen_shake(amount, decay_rate, max_offset)
+signal carried_object_changed(object, hasObject)
 var current_direction = right
 var throw_destination = current_direction
 
@@ -63,6 +64,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_pick"):
 			picked.picked = true
 			hasObject = true
+			emit_signal("carried_object_changed", picked, true)
 
 	if not picked == null and picked.picked:
 		if Input.is_action_pressed("ui_accept"):
@@ -77,6 +79,7 @@ func _physics_process(delta):
 			animationState.travel("Throws")
 			charged = min_throw_distance
 			hasObject = false
+			emit_signal("carried_object_changed",picked, false)
 			
 			
 			
@@ -147,3 +150,7 @@ func _on_PickArea_body_exited(body: Node) -> void:
 	if not body is pickable:
 		return
 	body.can_pick = false
+
+
+func _on_Player_carried_object_changed(object, hasObject) -> void:
+	pass # Replace with function body.
