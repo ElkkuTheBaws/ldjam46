@@ -14,15 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Barrel.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "pickable",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Scripts/Enemy.gd"
 }, {
-"base": "pickable",
-"class": "President",
+"base": "Enemy",
+"class": "enemy",
 "language": "GDScript",
-"path": "res://President.gd"
+"path": "res://Scripts/Enemy1.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "pickable",
@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "pickable",
+"class": "president",
+"language": "GDScript",
+"path": "res://President.gd"
 } ]
 _global_script_class_icons={
 "Barrel": "",
 "Enemy": "",
-"President": "",
+"enemy": "",
 "pickable": "",
-"player": ""
+"player": "",
+"president": ""
 }
 
 [application]

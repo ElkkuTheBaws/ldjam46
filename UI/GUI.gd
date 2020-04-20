@@ -10,6 +10,7 @@ onready var itemslot = get_node("CenterContainer/Itemslot")
 var empty = load("res://Textures/UI/itemslot/empty.png")
 var barrel = load("res://Textures/UI/itemslot/barrel.png")
 var president = load("res://Textures/UI/itemslot/president.png")
+var alien = load("res://Textures/UI/itemslot/alien.png")
 
 
 
@@ -27,3 +28,5 @@ func _on_Player_carried_object_changed(object, hasObject) -> void:
 				itemslot.texture = barrel
 			"President":
 				itemslot.texture = president
+			"Alien":
+				itemslot.texture = alien
