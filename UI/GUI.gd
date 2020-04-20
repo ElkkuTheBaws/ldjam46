@@ -25,5 +25,5 @@ func _on_Player_carried_object_changed(object, hasObject) -> void:
 		match (object.get_class()):
 			"Barrel":
 				itemslot.texture = barrel
-			president:
+			"President":
 				itemslot.texture = president
