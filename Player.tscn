@@ -586,8 +586,6 @@ frame_3/delay_sec = 0.0
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 5
 script = ExtResource( 2 )
-min_throw_distance = 5
-max_throw_distance = 75
 MAX_SPEED = 120
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

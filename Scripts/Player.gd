@@ -9,13 +9,14 @@ const left = Vector2.LEFT
 
 #Variables related to throwable objects
 var picked : pickable
-export(int,100) var min_throw_distance
-export(int, 100) var max_throw_distance
+export(int,100) var min_throw_distance = 5
+export(int, 100) var max_throw_distance =  75
 var charged = min_throw_distance
 var hasObject = false
 var descend = false
 var charging = false
 signal throw_length_changed(length)
+signal screen_shake(amount, decay_rate, max_offset)
 var current_direction = right
 var throw_destination = current_direction
 
@@ -69,6 +70,10 @@ func _physics_process(delta):
 				charge_throw()
 		if Input.is_action_just_released("ui_accept"):
 			picked.throw_object()
+#			print(charged)
+			var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
+			print(norm)
+			emit_signal("screen_shake", 10 + norm * 100, 2, 1 + norm * 2) #Amount, decay and offset
 			animationState.travel("Throws")
 			charged = min_throw_distance
 			hasObject = false
@@ -126,7 +131,6 @@ func charge_throw():
 	emit_signal("throw_length_changed", charged)
 
 func throw_animation_ended():
-	print("pitäs toimii")
 	charging = false
 	animationState.travel("Idle")
 
