@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/on kyl järkevän kuulone biisi.ogg-2eae96b66f7bfc2c314330e9e62d11e6.oggstr"
+
+[deps]
+
+source_file="res://Sounds/on kyl järkevän kuulone biisi.ogg"
+dest_files=[ "res://.import/on kyl järkevän kuulone biisi.ogg-2eae96b66f7bfc2c314330e9e62d11e6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
