@@ -9,7 +9,7 @@ onready var sprite = get_node("Sprite")
 var page = 0
 var talking = false
 var wait = false
-
+onready var speak = $AudioStreamPlayer
 signal talking_finished
 
 
@@ -45,7 +45,9 @@ func _input(event: InputEvent) -> void:
 
 func _on_Timer_timeout() -> void:
 	textLabel.set_visible_characters(textLabel.get_visible_characters() + 1)
-	
+	if textLabel.get_visible_characters() < textLabel.get_total_character_count():
+		if !speak.playing:
+			speak.play()
 
 
 func _on_say(textdialog, talker) -> void:

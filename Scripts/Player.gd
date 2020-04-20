@@ -32,12 +32,15 @@ var motion = Vector2.ZERO
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var footstep = $AudioStreamPlayer2D
+onready var throwsound = $AudioStreamPlayerThrow
 
 func _physics_process(delta):
 	var axis = get_input_axis()
 	
 	if axis == Vector2.ZERO:
 		apply_friction(ACCELERATION * delta)
+		footstep.stop()
 		if hasObject:
 			if !charging:
 				animationState.travel("Idle Hold")
@@ -52,11 +55,15 @@ func _physics_process(delta):
 			animationTree.set("parameters/Idle/blend_position", axis)
 			animationTree.set("parameters/Throws/blend_position", axis)
 			if !charging:
+				if !footstep.playing:
+					footstep.play(0)
 				animationState.travel("Run Hold")
 		else:
 			animationTree.set("parameters/Idle/blend_position", axis)
 			animationTree.set("parameters/Run/blend_position", axis)
 			if !charging:
+				if !footstep.playing:
+					footstep.play(0)
 				animationState.travel("Run")
 #	if not charged > min_throw_distance:
 	if !charging:
@@ -77,6 +84,7 @@ func _physics_process(delta):
 					charge_throw()
 			if Input.is_action_just_released("ui_accept"):
 				picked.throw_object()
+				throwsound.play(0)
 	#			print(charged)
 				var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
 	#			print(norm)

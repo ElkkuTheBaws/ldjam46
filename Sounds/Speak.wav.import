@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Speak.wav-a16c2a9c86a42b468b96f45cd64d2442.sample"
+
+[deps]
+
+source_file="res://Sounds/Speak.wav"
+dest_files=[ "res://.import/Speak.wav-a16c2a9c86a42b468b96f45cd64d2442.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
