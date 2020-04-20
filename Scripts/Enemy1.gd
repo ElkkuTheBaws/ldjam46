@@ -1,10 +1,10 @@
 extends Enemy
 class_name enemy
-export var move_speed = 90.0
+export var move_speed = 20.0
 export var min_distance = 100.0
 onready var nav_2d : Navigation2D = get_node("../Navigation2D")	
 onready var pleijeri = get_node("../President")	
-onready var line_2D = get_node("../Line2D")
+#onready var line_2D = get_node("../Line2D")
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
@@ -38,12 +38,12 @@ func _on_PlayerDetector_body_entered(body: Node) -> void:
 func calculate_path():
 	var new_path = nav_2d.get_simple_path(self.global_position, pleijeri.position)
 	path = new_path
-	line_2D.points = new_path
+	#line_2D.points = new_path
 	if path.size() == 0:
 		return
 
 func move_along_path(distance : float, delta) -> void:
-	print(path.size())
+	#print(path.size())
 	var start_point : = position
 	for i in range(path.size()):
 		var distance_to_next : = start_point.distance_to(path[0])

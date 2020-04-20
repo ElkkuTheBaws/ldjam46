@@ -15,6 +15,7 @@ var charged = min_throw_distance
 var hasObject = false
 var descend = false
 var charging = false
+var readyToThrow = false
 signal throw_length_changed(length)
 signal screen_shake(amount, decay_rate, max_offset)
 signal carried_object_changed(object, hasObject)
@@ -61,25 +62,30 @@ func _physics_process(delta):
 	
 	if not picked == null and picked.can_pick:
 		
-		if Input.is_action_just_pressed("ui_pick"):
+		if Input.is_action_just_pressed("ui_accept"):
 			picked.picked = true
 			hasObject = true
+			readyToThrow = false
 			emit_signal("carried_object_changed", picked, true)
 
-	if not picked == null and picked.picked:
-		if Input.is_action_pressed("ui_accept"):
-				animationState.travel("Idle Hold")
-				charge_throw()
-		if Input.is_action_just_released("ui_accept"):
-			picked.throw_object()
-#			print(charged)
-			var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
-#			print(norm)
-			emit_signal("screen_shake", 10 + norm * 100, 2, 1 + norm * 2) #Amount, decay and offset
-			animationState.travel("Throws")
-			charged = min_throw_distance
-			hasObject = false
-			emit_signal("carried_object_changed",picked, false)
+	if readyToThrow:
+		if not picked == null and picked.picked:
+			if Input.is_action_pressed("ui_accept"):
+					animationState.travel("Idle Hold")
+					charge_throw()
+			if Input.is_action_just_released("ui_accept"):
+				picked.throw_object()
+	#			print(charged)
+				var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
+	#			print(norm)
+				emit_signal("screen_shake", 10 + norm * 100, 2, 1 + norm * 2) #Amount, decay and offset
+				animationState.travel("Throws")
+				charged = min_throw_distance
+				hasObject = false
+				readyToThrow = false
+				emit_signal("carried_object_changed",picked, false)
+	if readyToThrow == false and Input.is_action_just_released("ui_accept"):
+		readyToThrow = true
 			
 			
 			
