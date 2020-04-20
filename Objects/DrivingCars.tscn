@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/taxi.png" type="Texture" id=1]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 10, 3 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 8.38
+linear_accel_random = 0.27
+
+[node name="Particles2D" type="Particles2D"]
+position = Vector2( 544, 16 )
+amount = 6
+lifetime = 40.0
+visibility_rect = Rect2( -600, -25, 600, 50 )
+local_coords = false
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )
