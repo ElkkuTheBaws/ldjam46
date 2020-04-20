@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name pickable
 
 onready var player_node = get_node("../Player/Position2D")
-onready var player: = get_node("../Player")
+onready var player_pick: = get_node("../Player")
 onready var raycast: = get_node("../Player/RayCast2D")
 
 var MASS = 500
@@ -46,9 +46,9 @@ func throw_object():
 	tween = Tween.new()
 	add_child(tween)
 	if raycast.is_colliding():
-		tween.interpolate_property(self, "position", global_position, player.throw_destination+player.current_direction.normalized()*-3, 0.25,Tween.TRANS_BACK,Tween.EASE_OUT)
+		tween.interpolate_property(self, "position", global_position, player_pick.throw_destination+player_pick.current_direction.normalized()*-3, 0.25,Tween.TRANS_BACK,Tween.EASE_OUT)
 	else:
-		tween.interpolate_property(self, "position", global_position, player.global_position + raycast.cast_to, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		tween.interpolate_property(self, "position", global_position, player_pick.global_position + raycast.cast_to, 0.5,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	tween.start()
 	#Creating a timer for the throw distance
 	throwtime = Timer.new()

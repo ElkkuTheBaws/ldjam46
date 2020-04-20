@@ -47,14 +47,11 @@ position = Vector2( 144, 192 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 336, 240 )
-speed = 80.0
-min_distance = 100.0
 
 [node name="Line2D" type="Line2D" parent="."]
-visible = false
 
 [node name="President" parent="." instance=ExtResource( 8 )]
-position = Vector2( 96, 32 )
+position = Vector2( 80, 96 )
 [connection signal="carried_object_changed" from="Player" to="Camera/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
 

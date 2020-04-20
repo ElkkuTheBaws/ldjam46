@@ -26,7 +26,6 @@ position = Vector2( 213.592, 248.735 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 402.715, 129.75 )
-speed = 80.0
 min_distance = 500.0
 
 [editable path="Navigation2D"]

@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends pickable
 class_name Enemy
 
 onready var timer = $HitTimer
 var MAX_SPEED = 200
-var collision
+#var collision
 var HP = 2
 var canTakeDamage = true
 
