@@ -3,7 +3,7 @@ extends Enemy
 export var speed = 200.0
 export var min_distance = 300.0
 onready var nav_2d : Navigation2D = get_node("../Navigation2D")	
-onready var pleijeri = get_node("../Player")	
+onready var pleijeri = get_node("../President")	
 onready var line_2D = get_node("../Line2D")
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
