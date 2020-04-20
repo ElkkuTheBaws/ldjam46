@@ -7,6 +7,8 @@ const right = Vector2.RIGHT
 const down = Vector2.DOWN
 const left = Vector2.LEFT
 
+var interractObj
+
 #Variables related to throwable objects
 var picked
 export(int,100) var min_throw_distance = 5
@@ -94,10 +96,11 @@ func _physics_process(delta):
 	
 	set_current_direction()
 	
-#	for index in get_slide_count():
-#		var collision = get_slide_collision(index)r
-#		if collision.collider.is_in_group("pickable"):
-#			collision.collider.apply_central_impulse(-collision.normal * inertia)
+	if not interractObj == null and Input.is_action_just_pressed("ui_pick"):
+		match interractObj.get_class():
+			"President":
+				interractObj.talk()
+	
 	
 func get_input_axis():
 	var axis = Vector2.ZERO
@@ -144,6 +147,7 @@ func throw_animation_ended():
 	animationState.travel("Idle")
 
 func _on_PickArea_body_entered(body):
+	interractObj = body
 	if not body is pickable:
 		return
 	body.can_pick = true
@@ -153,6 +157,8 @@ func _on_PickArea_body_entered(body):
 
 
 func _on_PickArea_body_exited(body: Node) -> void:
+	if interractObj == body:
+		interractObj = null
 	if not body is pickable:
 		return
 	body.can_pick = false

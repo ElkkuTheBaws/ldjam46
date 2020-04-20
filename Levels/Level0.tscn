@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=2]
@@ -9,9 +9,11 @@
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://President.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=15]
 
 [node name="Level0" type="YSort"]
+pause_mode = 1
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -38,14 +40,6 @@ position = Vector2( 118.251, 64.4534 )
 z_index = 1
 collision_mask = 13
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 212.259
-margin_top = 7.38959
-margin_right = -3.74065
-margin_bottom = -114.61
-
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 210.31, 72.6032 )
 collision_layer = 8
@@ -54,6 +48,11 @@ collision_mask = 8
 [node name="President" parent="." instance=ExtResource( 8 )]
 position = Vector2( 133.289, 65.0534 )
 z_index = 1
+dialog = [ "Hello stranger", "fuck you" ]
+
+[node name="President2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 160.401, 93.0399 )
+dialog = [ "oon presidentti 2", "tuplapisteviivadeedee" ]
 
 [node name="Particles2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 121.298, 72.2113 )
@@ -65,6 +64,23 @@ z_index = 1
 [node name="Goal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 240.549, 73.3457 )
 scale = Vector2( 0.38, 0.38 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 10 )]
+margin_left = -5.13644
+margin_top = 62.3031
+margin_right = -5.13644
+margin_bottom = 62.3031
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_left = 212.259
+margin_top = 7.38959
+margin_right = -3.74065
+margin_bottom = -114.61
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
+[connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
+[connection signal="say" from="President2" to="CanvasLayer/DialogBox" method="_on_say"]
