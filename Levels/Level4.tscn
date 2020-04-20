@@ -1,15 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://President.gd" type="Script" id=1]
-[ext_resource path="res://UI/GUI.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/PressurePlate.gd" type="Script" id=3]
-[ext_resource path="res://Objects/Goal.gd" type="Script" id=4]
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=5]
-[ext_resource path="res://Scripts/Barrel.gd" type="Script" id=6]
-[ext_resource path="res://Levels/Camera.gd" type="Script" id=7]
-[ext_resource path="res://UI/DialogBox.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Door.gd" type="Script" id=10]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://President.tscn" type="PackedScene" id=13]
@@ -76,48 +67,37 @@ collision_mask = 4
 format = 1
 tile_data = PoolIntArray( 3, 37, 0, 8, 37, 0, 65541, 38, 0, 65544, 38, 0, 65546, 38, 0, 131073, 15, 0, 131074, 15, 4, 131075, 15, 4, 131076, 15, 4, 131077, 15, 4, 131078, 15, 4, 131079, 15, 4, 131080, 15, 4, 131081, 15, 4, 131082, 15, 4, 131083, 15, 4, 131084, 15, 4, 131085, 15, 4, 131086, 15, 4, 131087, 15, 4, 131088, 15, 4, 131089, 15, 0, 262142, 15, 0, 262143, 15, 4, 196608, 15, 4, 196609, 15, 65537, 196614, 35, 0, 262149, 35, 0, 262150, 35, 0, 262151, 35, 0, 262152, 35, 0, 262153, 35, 0, 262154, 35, 0, 262155, 35, 0, 327680, 35, 0, 327681, 35, 0, 327682, 35, 0, 327683, 35, 0, 327684, 35, 0, 327685, 35, 0, 393221, 35, 0, 458757, 35, 0, 458758, 35, 0, 524294, 35, 0 )
 
-[node name="View" type="Node2D" parent="." instance=ExtResource( 19 )]
-script = ExtResource( 7 )
+[node name="View" parent="." instance=ExtResource( 19 )]
 
-[node name="Pressureplate" type="Node2D" parent="." instance=ExtResource( 14 )]
+[node name="Pressureplate" parent="." instance=ExtResource( 14 )]
 position = Vector2( 58.9382, 127.305 )
-script = ExtResource( 3 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 15 )]
+[node name="Player" parent="." instance=ExtResource( 15 )]
 position = Vector2( 51.8604, 73.5254 )
 z_index = 1
 collision_mask = 13
-script = ExtResource( 9 )
-MAX_SPEED = 120
 
-[node name="Door" type="KinematicBody2D" parent="." instance=ExtResource( 12 )]
+[node name="Door" parent="." instance=ExtResource( 12 )]
 position = Vector2( 200.059, 87.9195 )
 collision_layer = 8
 collision_mask = 8
-script = ExtResource( 10 )
 doors = 1
 
-[node name="President" type="KinematicBody2D" parent="." instance=ExtResource( 13 )]
+[node name="President" parent="." instance=ExtResource( 13 )]
 position = Vector2( 69.785, 72.476 )
 z_index = 1
-script = ExtResource( 1 )
 dialog = [ "Okay, okay. THINK! Maybe you can try throwing them somewhere where they can't get to me" ]
 
-[node name="Particles2D" type="Particles2D" parent="." instance=ExtResource( 20 )]
+[node name="Particles2D" parent="." instance=ExtResource( 20 )]
 position = Vector2( 121.298, 72.2113 )
-amount = 500
-lifetime = 4.0
-randomness = 0.51
 process_material = SubResource( 1 )
 
-[node name="Barrel" type="KinematicBody2D" parent="." instance=ExtResource( 17 )]
+[node name="Barrel" parent="." instance=ExtResource( 17 )]
 position = Vector2( 194.625, 65.8984 )
 z_index = 1
-script = ExtResource( 6 )
 
-[node name="Goal" type="KinematicBody2D" parent="." instance=ExtResource( 11 )]
+[node name="Goal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 243.848, 94.3763 )
-script = ExtResource( 4 )
 dialog = [ "Am I forgetting something?" ]
 
 [node name="Enemy" parent="." instance=ExtResource( 22 )]
@@ -131,36 +111,22 @@ collision_mask = 15
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
-[node name="GUI" type="MarginContainer" parent="CanvasLayer" instance=ExtResource( 18 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 18 )]
 margin_left = 205.287
 margin_top = 8.29894
 margin_right = -10.7126
 margin_bottom = -113.701
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="DialogBox" type="Panel" parent="CanvasLayer" instance=ExtResource( 16 )]
+[node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 16 )]
 visible = false
 margin_left = -5.13644
 margin_top = 62.3031
 margin_right = -5.13644
 margin_bottom = 62.3031
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-dialog = [ "Morjesta moi" ]
 [connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
-[connection signal="throw_length_changed" from="Player" to="Player/ThrowMarker" method="_on_Player_throw_length_changed"]
-[connection signal="throw_length_changed" from="Player" to="Player/ProgressBar" method="_on_Player_throw_length_changed"]
-[connection signal="throw_length_changed" from="Player" to="Player/RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="dead" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="say" from="Goal" to="CanvasLayer/DialogBox" method="_on_say"]

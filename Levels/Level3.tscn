@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=1]
 [ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=2]
@@ -7,24 +7,17 @@
 [ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://President.tscn" type="PackedScene" id=7]
-[ext_resource path="res://President.gd" type="Script" id=8]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/PressurePlate.gd" type="Script" id=10]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=11]
-[ext_resource path="res://Levels/Camera.gd" type="Script" id=12]
-[ext_resource path="res://Objects/Goal.gd" type="Script" id=13]
-[ext_resource path="res://UI/GUI.gd" type="Script" id=14]
 [ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/Door.gd" type="Script" id=17]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=18]
 [ext_resource path="res://Textures/tank.png" type="Texture" id=19]
-[ext_resource path="res://UI/DialogBox.gd" type="Script" id=20]
 [ext_resource path="res://Objects/DrivingCars.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=22]
 
 [node name="Level3" type="YSort"]
 script = ExtResource( 11 )
+introText = [ "Not even close, Tax! You sure showed them where the chicken pees!", "I heard that one from my friend Saato-Sale. ", "But anyway, this building looks pretty big. We should probably explore. Or you should explore. Not me." ]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 position = Vector2( 0.0769424, 0 )
@@ -53,8 +46,7 @@ tile_data = PoolIntArray( 720900, 20, 0, 720901, 20, 0, 720902, 20, 0, 983038, 2
 [node name="Particles2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( 542.883, 256.607 )
 
-[node name="View" type="Node2D" parent="." instance=ExtResource( 4 )]
-script = ExtResource( 12 )
+[node name="View" parent="." instance=ExtResource( 4 )]
 
 [node name="tank2" type="Sprite" parent="."]
 position = Vector2( 372.67, 34.7757 )
@@ -66,26 +58,22 @@ position = Vector2( 288.504, 183.421 )
 [node name="Barrel" parent="." instance=ExtResource( 9 )]
 position = Vector2( 185.27, 61.1482 )
 
-[node name="Pressureplate" type="Node2D" parent="." instance=ExtResource( 2 )]
+[node name="Pressureplate" parent="." instance=ExtResource( 2 )]
 position = Vector2( 103.662, 199.685 )
-script = ExtResource( 10 )
 id = 1
 
 [node name="Pressureplate2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72.3172, 165.777 )
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32, 32 )
 z_index = 1
 collision_mask = 13
-script = ExtResource( 18 )
-MAX_SPEED = 120
 
-[node name="Door" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+[node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 104.104, 56.0157 )
 collision_layer = 8
 collision_mask = 8
-script = ExtResource( 17 )
 
 [node name="Door2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 103.804, 119.965 )
@@ -93,44 +81,31 @@ collision_layer = 8
 collision_mask = 8
 id = 1
 
-[node name="President" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+[node name="President" parent="." instance=ExtResource( 7 )]
 position = Vector2( 36.6718, 21.2558 )
 z_index = 1
-script = ExtResource( 8 )
-dialog = [ "Please save me, Tax Payer!", "*niisk*" ]
+dialog = [ "Do you think you could throw me over the fences?", "I could handle it, probably.", "Please be gentle." ]
 
-[node name="Goal" type="KinematicBody2D" parent="." instance=ExtResource( 16 )]
+[node name="Goal" parent="." instance=ExtResource( 16 )]
 position = Vector2( 376, 44 )
 rotation = -1.5708
-script = ExtResource( 13 )
 dialog = [ "Maybe I should get the president first" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
-[node name="GUI" type="MarginContainer" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 6 )]
 margin_left = 205.287
 margin_top = 8.29894
 margin_right = -10.7126
 margin_bottom = -113.701
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="DialogBox" type="Panel" parent="CanvasLayer" instance=ExtResource( 15 )]
+[node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 15 )]
 visible = false
 margin_left = -5.13644
 margin_top = 62.3031
 margin_right = -5.13644
 margin_bottom = 62.3031
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-dialog = [ "Morjesta moi" ]
 
 [node name="tank" type="Sprite" parent="."]
 position = Vector2( -15.7554, 202.35 )
@@ -138,13 +113,11 @@ texture = ExtResource( 19 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 361.452, 144.515 )
+[connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="activated" from="Pressureplate" to="Door2" method="_on_Pressureplate_activated"]
 [connection signal="activated" from="Pressureplate2" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
-[connection signal="throw_length_changed" from="Player" to="Player/ProgressBar" method="_on_Player_throw_length_changed"]
-[connection signal="throw_length_changed" from="Player" to="Player/RayCast2D" method="_on_Player_throw_length_changed"]
-[connection signal="throw_length_changed" from="Player" to="Player/ThrowMarker" method="_on_Player_throw_length_changed"]
 [connection signal="dead" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="say" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="say" from="Goal" to="CanvasLayer/DialogBox" method="_on_say"]
