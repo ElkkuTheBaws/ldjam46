@@ -54,6 +54,10 @@ config/name="ldjam"
 run/main_scene="res://Levels/TestMap.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalVariables="*res://GlobalVariables.gd"
+
 [display]
 
 window/size/width=256
