@@ -27,8 +27,8 @@ border_width_bottom = 1
 border_color = Color( 0.870588, 0.933333, 0.839216, 0 )
 corner_detail = 4
 
-[sub_resource type="StyleBoxFlat" id=61]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0784314, 0.0470588, 0.109804, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -625,7 +625,7 @@ margin_top = -9.94009
 margin_right = 7.42659
 margin_bottom = -5.94009
 custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 61 )
+custom_styles/bg = SubResource( 4 )
 min_value = 10.0
 max_value = 75.0
 value = 10.0
@@ -682,12 +682,14 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+bus = "Player"
 
 [node name="AudioStreamPlayerThrow" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+bus = "Player"
+[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ThrowMarker" method="_on_Player_throw_length_changed"]
-[connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
 [connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
