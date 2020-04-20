@@ -9,13 +9,14 @@ const left = Vector2.LEFT
 
 #Variables related to throwable objects
 var picked : pickable
-export(int,100) var min_throw_distance
-export(int, 100) var max_throw_distance
+export(int,100) var min_throw_distance = 5
+export(int, 100) var max_throw_distance =  75
 var charged = min_throw_distance
 var hasObject = false
 var descend = false
 var charging = false
 signal throw_length_changed(length)
+signal screen_shake(amount, decay_rate, max_offset)
 var current_direction = right
 var throw_destination = current_direction
 
@@ -33,13 +34,28 @@ func _physics_process(delta):
 	
 	if axis == Vector2.ZERO:
 		apply_friction(ACCELERATION * delta)
-		animationState.travel("Idle")
+		if hasObject:
+			if !charging:
+				animationState.travel("Idle Hold")
+		else:
+			if !charging:
+				animationState.travel("Idle")
 	else:
 		apply_movement(axis * delta * ACCELERATION)
-		animationTree.set("parameters/Idle/blend_position", axis)
-		animationTree.set("parameters/Run/blend_position", axis)
-		animationState.travel("Run")
-	if not charged > min_throw_distance:
+		if hasObject:
+			animationTree.set("parameters/Idle Hold/blend_position", axis)
+			animationTree.set("parameters/Run Hold/blend_position", axis)
+			animationTree.set("parameters/Idle/blend_position", axis)
+			animationTree.set("parameters/Throws/blend_position", axis)
+			if !charging:
+				animationState.travel("Run Hold")
+		else:
+			animationTree.set("parameters/Idle/blend_position", axis)
+			animationTree.set("parameters/Run/blend_position", axis)
+			if !charging:
+				animationState.travel("Run")
+#	if not charged > min_throw_distance:
+	if !charging:
 		motion = move_and_slide(motion, Vector2( 0, 0 ),false, 4, 0.785398,false)
 	
 	if not picked == null and picked.can_pick:
@@ -50,12 +66,19 @@ func _physics_process(delta):
 
 	if not picked == null and picked.picked:
 		if Input.is_action_pressed("ui_accept"):
+				animationState.travel("Idle Hold")
 				charge_throw()
 		if Input.is_action_just_released("ui_accept"):
 			picked.throw_object()
+#			print(charged)
+			var norm = (float(charged) - float(min_throw_distance)) / (float(max_throw_distance) - float(min_throw_distance))
+			print(norm)
+			emit_signal("screen_shake", 10 + norm * 100, 2, 1 + norm * 2) #Amount, decay and offset
+			animationState.travel("Throws")
 			charged = min_throw_distance
 			hasObject = false
-			charging = false
+			
+			
 			
 	if Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
@@ -107,6 +130,9 @@ func charge_throw():
 			
 	emit_signal("throw_length_changed", charged)
 
+func throw_animation_ended():
+	charging = false
+	animationState.travel("Idle")
 
 func _on_PickArea_body_entered(body):
 	if not body is pickable:

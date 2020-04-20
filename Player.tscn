@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Textures/player_animation_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -36,6 +36,74 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 12 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "Idle_Hold_Down"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 40 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Idle_Hold_Left"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 36 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Idle_Hold_Right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 32 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Idle_Hold_Up"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 44 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -102,6 +170,74 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27 ]
 }
 
+[sub_resource type="Animation" id=34]
+resource_name = "Run_Hold_Down"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59 ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Run_Hold_Left"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54, 55 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Run_Hold_Right"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51 ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "Run_Hold_Up"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 60, 61, 62, 63 ]
+}
+
 [sub_resource type="Animation" id=10]
 resource_name = "Run_Left"
 length = 0.4
@@ -153,6 +289,155 @@ tracks/0/keys = {
 "values": [ 28, 29, 30, 31 ]
 }
 
+[sub_resource type="Animation" id=38]
+resource_name = "Throw_Down"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 72, 73, 74, 75 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "throw_animation_ended"
+} ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Throw_Left"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 68, 69, 70, 71 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "throw_animation_ended"
+} ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Throw_Right"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 64, 65, 66, 67 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "throw_animation_ended"
+} ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Throw_Up"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 76, 77, 78, 79 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "throw_animation_ended"
+} ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "Idle_Hold_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=41]
+animation = "Idle_Hold_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "Idle_Hold_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "Idle_Hold_Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=44]
+blend_point_0/node = SubResource( 40 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 41 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 42 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 43 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Idle_Left"
 
@@ -174,6 +459,31 @@ blend_point_2/node = SubResource( 15 )
 blend_point_2/pos = Vector2( 0, -1.1 )
 blend_point_3/node = SubResource( 16 )
 blend_point_3/pos = Vector2( 1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "Run_Hold_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "Run_Hold_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "Run_Hold_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "Run_Hold_Left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=49]
+blend_point_0/node = SubResource( 45 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 46 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 47 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 48 )
+blend_point_3/pos = Vector2( -1, 0 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
@@ -203,18 +513,61 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "Throw_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "Throw_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "Throw_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "Throw_Left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=54]
+blend_point_0/node = SubResource( 50 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 51 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 52 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 53 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
 [sub_resource type="AnimationNodeStateMachine" id=25]
 states/Idle/node = SubResource( 17 )
 states/Idle/position = Vector2( 369, 147 )
+"states/Idle Hold/node" = SubResource( 44 )
+"states/Idle Hold/position" = Vector2( 560.254, 129 )
 states/Run/node = SubResource( 22 )
-states/Run/position = Vector2( 588, 154 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ) ]
+states/Run/position = Vector2( 369, 230 )
+"states/Run Hold/node" = SubResource( 49 )
+"states/Run Hold/position" = Vector2( 560.254, 230 )
+states/Throws/node = SubResource( 54 )
+states/Throws/position = Vector2( 396.254, 26 )
+transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle Hold", "Run Hold", SubResource( 55 ), "Run Hold", "Idle Hold", SubResource( 56 ), "Idle", "Idle Hold", SubResource( 57 ), "Idle Hold", "Idle", SubResource( 58 ), "Idle Hold", "Throws", SubResource( 59 ), "Throws", "Idle", SubResource( 60 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -279.746, 8.16189 )
+graph_offset = Vector2( 26.254, -18.084 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=26]
 
@@ -233,8 +586,6 @@ frame_3/delay_sec = 0.0
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 5
 script = ExtResource( 2 )
-min_throw_distance = 5
-max_throw_distance = 75
 MAX_SPEED = 120
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -243,7 +594,7 @@ script = ExtResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 8
+vframes = 20
 hframes = 4
 frame = 4
 
@@ -281,13 +632,25 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle_Down = SubResource( 5 )
+anims/Idle_Hold_Down = SubResource( 28 )
+anims/Idle_Hold_Left = SubResource( 29 )
+anims/Idle_Hold_Right = SubResource( 30 )
+anims/Idle_Hold_Up = SubResource( 31 )
 anims/Idle_Left = SubResource( 6 )
 anims/Idle_Right = SubResource( 7 )
 anims/Idle_Up = SubResource( 8 )
 anims/Run_Down = SubResource( 9 )
+anims/Run_Hold_Down = SubResource( 34 )
+anims/Run_Hold_Left = SubResource( 32 )
+anims/Run_Hold_Right = SubResource( 33 )
+anims/Run_Hold_Up = SubResource( 35 )
 anims/Run_Left = SubResource( 10 )
 anims/Run_Right = SubResource( 11 )
 anims/Run_Up = SubResource( 12 )
+anims/Throw_Down = SubResource( 38 )
+anims/Throw_Left = SubResource( 37 )
+anims/Throw_Right = SubResource( 36 )
+anims/Throw_Up = SubResource( 39 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 25 )
@@ -295,7 +658,10 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 26 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
+"parameters/Idle Hold/blend_position" = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
+"parameters/Run Hold/blend_position" = Vector2( 0, 0 )
+parameters/Throws/blend_position = Vector2( 0, 0 )
 
 [node name="ThrowMarker" type="Sprite" parent="."]
 texture = SubResource( 27 )
@@ -305,12 +671,12 @@ script = ExtResource( 4 )
 wait_time = 0.2
 one_shot = true
 autostart = true
-[connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="RayCast2D" method="_on_Player_throw_length_changed"]
 [connection signal="throw_length_changed" from="." to="ThrowMarker" method="_on_Player_throw_length_changed"]
+[connection signal="throw_length_changed" from="." to="ProgressBar" method="_on_Player_throw_length_changed"]
 [connection signal="body_entered" from="PickArea" to="." method="_on_PickArea_body_entered"]
 [connection signal="body_exited" from="PickArea" to="." method="_on_PickArea_body_exited"]
-[connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ProgressBar/Timer" to="ThrowMarker" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ThrowMarker/Timer2" to="ThrowMarker" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ThrowMarker/Timer2" to="ThrowMarker" method="_on_Timer2_timeout"]
