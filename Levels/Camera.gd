@@ -45,8 +45,10 @@ func update_camera():
 		player_world_pos = new_player_grid_pos
 		transform = get_viewport().get_canvas_transform()
 		transform[2] = -player_world_pos * window_size
-		center.position = -player_world_pos * window_size
-		print(center.position)
+		transform[1] = Vector2(0, 1)
+#		print(transform[2])
+		center.position = player_world_pos * window_size
+#		print(center.position)
 		get_viewport().set_canvas_transform(transform)
 	return transform
 
@@ -65,7 +67,7 @@ func _apply_shake():
 	var o_x = max_offset * shake * _get_neg_or_pos_scalar()
 	var o_y = max_offset * shake * _get_neg_or_pos_scalar()
 	var transform = get_viewport().get_canvas_transform()
-	transform[2] = center.position + Vector2(o_x, o_y)
+	transform[2] = -player_world_pos * window_size + Vector2(o_x, o_y)
 	get_viewport().set_canvas_transform(transform)
 	
 	
