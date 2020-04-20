@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 export var next_level = 1
+export (Array, String) var dialog
+signal say(dialog, talker)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,4 +19,4 @@ func _on_Area2D_body_entered(body: Node) -> void:
 		if body.hasObject and body.picked.get_class() == "President":
 			get_tree().change_scene("res://Levels/Level"+ str(next_level)+ ".tscn")
 		else:
-			print("you don't have the president you idiot")
+			emit_signal("say", dialog, player)
