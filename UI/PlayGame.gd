@@ -17,4 +17,4 @@ func _ready() -> void:
 
 
 func _on_PlayGame_pressed() -> void:
-	get_tree().change_scene("res://Map.tscn")
+	get_tree().change_scene("res://Levels/Level0.tscn")

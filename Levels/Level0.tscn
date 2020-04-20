@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=2]
@@ -9,10 +9,9 @@
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://President.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Barrel.tscn" type="PackedScene" id=15]
 
-[node name="Level1" type="YSort"]
+[node name="Level0" type="YSort"]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -66,12 +65,6 @@ z_index = 1
 [node name="Goal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 240.549, 73.3457 )
 scale = Vector2( 0.38, 0.38 )
-next_level = 2
-
-[node name="Enemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 124.99, 135.501 )
-z_index = 1
-speed = 20.0
 [connection signal="activated" from="Pressureplate" to="Door" method="_on_Pressureplate_activated"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
