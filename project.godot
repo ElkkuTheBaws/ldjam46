@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Barrel.gd"
 }, {
-"base": "pickable",
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Scripts/Enemy.gd"
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ldjam"
-run/main_scene="res://Levels/TestMap.tscn"
+run/main_scene="res://UI/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
