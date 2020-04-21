@@ -1,0 +1,113 @@
+[gd_scene load_steps=86 format=2]
+
+[ext_resource path="res://Levels/EndAnimation.gd" type="Script" id=1]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_37.png" type="Texture" id=2]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_38.png" type="Texture" id=3]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_69.png" type="Texture" id=4]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_44.png" type="Texture" id=5]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_71.png" type="Texture" id=6]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_64.png" type="Texture" id=7]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_46.png" type="Texture" id=8]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_42.png" type="Texture" id=9]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_63.png" type="Texture" id=10]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_49.png" type="Texture" id=11]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_48.png" type="Texture" id=12]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_41.png" type="Texture" id=13]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_51.png" type="Texture" id=14]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_55.png" type="Texture" id=15]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_67.png" type="Texture" id=16]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_72.png" type="Texture" id=17]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_45.png" type="Texture" id=18]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_57.png" type="Texture" id=19]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_43.png" type="Texture" id=20]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_54.png" type="Texture" id=21]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_66.png" type="Texture" id=22]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_60.png" type="Texture" id=23]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_50.png" type="Texture" id=24]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_56.png" type="Texture" id=25]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_62.png" type="Texture" id=26]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_61.png" type="Texture" id=27]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_47.png" type="Texture" id=28]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_53.png" type="Texture" id=29]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_52.png" type="Texture" id=30]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_68.png" type="Texture" id=31]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_59.png" type="Texture" id=32]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_70.png" type="Texture" id=33]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_58.png" type="Texture" id=34]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_65.png" type="Texture" id=35]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_78.png" type="Texture" id=36]
+[ext_resource path="res://Textures/end scene/end loop/end scene_animation end loop_0.png" type="Texture" id=38]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_73.png" type="Texture" id=39]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_76.png" type="Texture" id=40]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_75.png" type="Texture" id=42]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_77.png" type="Texture" id=43]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_80.png" type="Texture" id=44]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_79.png" type="Texture" id=45]
+[ext_resource path="res://Textures/end scene/end loop/end scene_animation end loop_1.png" type="Texture" id=46]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_74.png" type="Texture" id=47]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_81.png" type="Texture" id=48]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_40.png" type="Texture" id=49]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_39.png" type="Texture" id=50]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_22.png" type="Texture" id=51]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_28.png" type="Texture" id=52]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_08.png" type="Texture" id=53]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_26.png" type="Texture" id=54]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_07.png" type="Texture" id=55]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_12.png" type="Texture" id=56]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_17.png" type="Texture" id=57]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_21.png" type="Texture" id=58]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_27.png" type="Texture" id=59]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_25.png" type="Texture" id=60]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_32.png" type="Texture" id=61]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_06.png" type="Texture" id=62]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_29.png" type="Texture" id=63]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_10.png" type="Texture" id=64]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_14.png" type="Texture" id=65]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_31.png" type="Texture" id=66]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_16.png" type="Texture" id=67]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_20.png" type="Texture" id=68]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_18.png" type="Texture" id=69]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_15.png" type="Texture" id=70]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_11.png" type="Texture" id=71]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_24.png" type="Texture" id=72]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_33.png" type="Texture" id=73]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_34.png" type="Texture" id=74]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_35.png" type="Texture" id=75]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_36.png" type="Texture" id=76]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_30.png" type="Texture" id=77]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_09.png" type="Texture" id=78]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_13.png" type="Texture" id=79]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_23.png" type="Texture" id=80]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_19.png" type="Texture" id=81]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_02.png" type="Texture" id=83]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_03.png" type="Texture" id=84]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_01.png" type="Texture" id=85]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_04.png" type="Texture" id=86]
+[ext_resource path="res://Textures/end scene/animation start/end scene_animation start_05.png" type="Texture" id=87]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 38 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "Second",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 85 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 62 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 78 ), ExtResource( 64 ), ExtResource( 71 ), ExtResource( 56 ), ExtResource( 79 ), ExtResource( 65 ), ExtResource( 70 ), ExtResource( 67 ), ExtResource( 57 ), ExtResource( 69 ), ExtResource( 81 ), ExtResource( 68 ), ExtResource( 58 ), ExtResource( 51 ), ExtResource( 80 ), ExtResource( 72 ), ExtResource( 60 ), ExtResource( 54 ), ExtResource( 59 ), ExtResource( 52 ), ExtResource( 63 ), ExtResource( 77 ), ExtResource( 66 ), ExtResource( 61 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 35 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 33 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 39 ), ExtResource( 47 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 48 ) ],
+"loop": false,
+"name": "First",
+"speed": 9.0
+} ]
+
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "First"
+centered = false
+script = ExtResource( 1 )
