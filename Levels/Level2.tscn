@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TILE_SET.tres" type="TileSet" id=1]
 [ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Particles.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/DialogBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=12]
 
 [sub_resource type="ParticlesMaterial" id=1]
 lifetime_randomness = 0.28
@@ -37,7 +38,9 @@ color = Color( 0.219608, 0.219608, 0.192157, 0.47451 )
 hue_variation = 0.1
 hue_variation_random = 0.69
 
-[node name="Level1" type="YSort"]
+[node name="Level2" type="YSort"]
+script = ExtResource( 12 )
+introText = [ "No, I am not hiding from the alien. I am just ..........being responsible of my own life.", "Of course you don't understand, the alien is after me, not you. Just look at the way it stares at me.", "*at least someone is showing interest in me*" ]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -75,7 +78,7 @@ collision_mask = 13
 [node name="President" parent="." instance=ExtResource( 7 )]
 position = Vector2( 96, 80 )
 z_index = 1
-dialog = [ "Please save me, Tax Payer!", "*niisk*" ]
+dialog = [ "Don't even think about throwing me on that button..." ]
 
 [node name="Particles2D" parent="." instance=ExtResource( 9 )]
 position = Vector2( 121.298, 72.2113 )
@@ -86,7 +89,7 @@ position = Vector2( 160, 16 )
 z_index = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 80, -120.5 )
+position = Vector2( 95.1462, -119.939 )
 move_speed = 50.0
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
@@ -94,7 +97,7 @@ position = Vector2( 152.5, -128 )
 move_speed = 50.0
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 208, 224 )
+position = Vector2( 201.938, 217.618 )
 move_speed = 25.0
 
 [node name="Enemy4" parent="." instance=ExtResource( 5 )]
@@ -120,6 +123,7 @@ margin_left = -5.13644
 margin_top = 62.3031
 margin_right = -5.13644
 margin_bottom = 62.3031
+[connection signal="say" from="." to="CanvasLayer/DialogBox" method="_on_say"]
 [connection signal="carried_object_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_carried_object_changed"]
 [connection signal="screen_shake" from="Player" to="View" method="_on_Player_screen_shake"]
 [connection signal="dead" from="President" to="CanvasLayer/DialogBox" method="_on_say"]
