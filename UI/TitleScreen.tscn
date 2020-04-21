@@ -1,25 +1,25 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_10.png" type="Texture" id=1]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_05.png" type="Texture" id=2]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_00.png" type="Texture" id=3]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_06.png" type="Texture" id=4]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_12.png" type="Texture" id=5]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_07.png" type="Texture" id=6]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_04.png" type="Texture" id=7]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_08.png" type="Texture" id=8]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_02.png" type="Texture" id=9]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_13.png" type="Texture" id=10]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_01.png" type="Texture" id=11]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_03.png" type="Texture" id=12]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_09.png" type="Texture" id=13]
-[ext_resource path="res://Textures/aniamted main menu v2/menuloop_mainmenu_v2_11.png" type="Texture" id=14]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_10.png" type="Texture" id=1]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_12.png" type="Texture" id=2]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_11.png" type="Texture" id=3]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_13.png" type="Texture" id=4]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_00.png" type="Texture" id=5]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_05.png" type="Texture" id=6]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_01.png" type="Texture" id=7]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_02.png" type="Texture" id=8]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_06.png" type="Texture" id=9]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_03.png" type="Texture" id=10]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_07.png" type="Texture" id=11]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_09.png" type="Texture" id=12]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_04.png" type="Texture" id=13]
+[ext_resource path="res://Textures/animated main menu v3/menuloop_mainmenu_v3_08.png" type="Texture" id=14]
 [ext_resource path="res://UI/TitleScreen.gd" type="Script" id=15]
 [ext_resource path="res://Sounds/eddie2.ogg" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 12.0
