@@ -52,7 +52,7 @@ doors = 1
 [node name="President" parent="." instance=ExtResource( 8 )]
 position = Vector2( 133.289, 65.0534 )
 z_index = 1
-dialog = [ "Please save me, Tax Payer!", "*niisk*" ]
+dialog = [ "The barrels really are supposed to explode. I guess you're not just throwing hard enough." ]
 
 [node name="Particles2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 121.298, 72.2113 )

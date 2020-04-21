@@ -71,7 +71,6 @@ tile_data = PoolIntArray( -786425, 15, 0, -786421, 12, 0, -720893, 12, 0, -72088
 
 [node name="Pressureplate" parent="." instance=ExtResource( 3 )]
 position = Vector2( 165.887, 44.5443 )
-id = 2
 
 [node name="tank" type="Sprite" parent="."]
 position = Vector2( 128, -48 )
